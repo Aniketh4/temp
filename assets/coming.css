@@ -1,0 +1,46 @@
+body{
+    background-color: black;
+}
+
+*{
+    color: white;
+}
+
+main{
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.form-container{
+    display: flex;
+    align-items: center;
+    justify-content:center;
+}
+
+main h1{
+    font-size: 5rem;
+    text-transform: uppercase;
+}
+
+.red-text{
+    text-align: center;
+    margin-top: 1rem;
+    color: red;
+}
+
+button{
+    background-color: white;
+    color: black;
+    padding: .3rem;
+    border: none;
+    
+}
+
+input{
+    background-color: #535252C7;
+    border: none;
+    padding: .3rem;
+}

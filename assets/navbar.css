@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Jura:wght@300..700&family=Rajdhani&display=swap');
+
+*{
+    font-family: "Rajdhani", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background-color: black;
+    color: white;
+}
+
+
+ul.link-ul{
+    display: flex;
+    gap: 1rem;
+    list-style-type: none;
+}
+
+a{
+    color: currentColor;
+    text-decoration: none;
+}
+
+.login-link{
+    color: red;
+}
+
+.magazine-link{
+    padding: 1rem;
+    background: rgb(2,0,36);
+    background: linear-gradient(27deg, rgba(2,0,36,1) 0%, rgba(247,86,72,1) 110%);
+    border-radius: 12px;
+}
