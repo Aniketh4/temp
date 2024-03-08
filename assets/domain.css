@@ -4,6 +4,10 @@ header{
     padding: 2rem;
 }
 
+body{
+    overflow-x: hidden;
+}
+
 .domain-title{
     font-weight: bold;
     letter-spacing: 2px;
@@ -68,7 +72,7 @@ header .news-num{
 .tabs{
     display: flex;
     gap: 4rem;
-
+    flex-wrap: wrap;
 }
 
 .tabs .tab{
@@ -139,6 +143,7 @@ header .news-num{
     gap: 2rem;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .bottom-tab-arena .bottom-tab{
@@ -181,4 +186,39 @@ header .news-num{
     border-radius: 50%;
     height: 12px;
     width: 12px;
+}
+
+
+@media screen and (max-width : 800px) {
+    .header-arena{
+        flex-direction: column-reverse;
     }
+
+    .header-arena img{
+        height: 150px;
+    }
+    .header-ls{
+        padding: 0;
+    }
+    .tab-bar{
+        flex-direction: column-reverse;
+        align-items: flex-end;
+    }
+    .tabs{
+        gap: 1rem;
+    }
+    .tabs .tab{
+        font-size: .9rem;
+    }
+    .flex{
+        flex-direction: column;
+    }
+    .flex:nth-child(even){
+        flex-direction: column;
+    }
+    .flex-img img{
+        height: 7rem;
+    }
+
+
+}

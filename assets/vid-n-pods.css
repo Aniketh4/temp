@@ -121,3 +121,27 @@
     padding: .3rem 1rem;
     border-radius: 8px;
 }
+
+@media screen and (max-width: 800px) {
+    .long-vid{
+        display: none;
+    }
+    .vid-flex-container{
+        flex-direction: column;
+        align-items: center;
+
+    }
+
+    .short-vid{
+        width: 75vw;
+    }
+
+    .podcast-main{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .bill-sub{
+        left: 65%;
+    }
+}

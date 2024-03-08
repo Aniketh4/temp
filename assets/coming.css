@@ -44,3 +44,21 @@ input{
     border: none;
     padding: .3rem;
 }
+
+.mob-logo{
+    display: none;
+}
+
+@media screen and (max-width: 800px) {
+    h1{
+        text-align: center;
+        margin-top: 2rem;
+    }
+    .mob-logo{
+        display: block;
+        font-size: 2rem;
+        letter-spacing: 1.2px;
+        font-weight: bold;
+        color: #D9D9D9;
+    }
+}

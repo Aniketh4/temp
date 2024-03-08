@@ -4,6 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Bombay Forum</title>
+    <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/v8/js/anychart-ui.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/v8/js/anychart-exports.min.js"></script>
+    <link
+      href="https://cdn.anychart.com/releases/v8/css/anychart-ui.min.css"
+      type="text/css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.anychart.com/releases/v8/fonts/css/anychart-font.min.css"
+      type="text/css"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./assets/navbar.css" />
     <link rel="stylesheet" href="./assets/home.css" />
     <link rel="stylesheet" href="./assets/vid-n-pods.css" />
@@ -11,6 +24,7 @@
   <body>
     <nav>
       <h2 class="logo">The Bombay Forum</h2>
+      <h2 class="mob-logo">TBF</h2>
       <ul class="link-ul center-nav">
         <li><a href="">Finance</a></li>
         <li><a href="">Finance</a></li>
@@ -24,6 +38,9 @@
           <a href="" class="magazine-link">Magazine</a>
         </li>
       </ul>
+      <div class="hamburger">
+        <img src="./assets/img/menu.png" alt="" />
+      </div>
     </nav>
 
     <div class="snp-marquee">
@@ -288,7 +305,10 @@
       </div>
     </div>
     <div class="technology-arena">
-      <div class="rajdhani-layout"><h1>Technology</h1></div>
+      <div class="rajdhani-layout">
+        <h3 class="title-3">Technology</h3>
+        <div class="date">05 March 2024</div>
+      </div>
       <div class="tech-main">
         <div class="tech-grid">
           <div id="grid-card">
@@ -402,7 +422,10 @@
       </div>
     </div>
     <div class="lifestyle-arena">
-      <div class="rajdhani-layout"><h1>Lifestyle</h1></div>
+      <div class="rajdhani-layout">
+        <h3 class="title-3">Lifestyle</h3>
+        <div class="date">05 March 2024</div>
+      </div>
       <div class="flex-3">
         <div class="div-1">
           <img
@@ -474,6 +497,109 @@
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. A,
                 consequatur?
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="market-arena">
+      <div class="rajdhani-layout">
+        <h3 class="title-3">Market</h3>
+        <div class="date">05 March 2024</div>
+      </div>
+
+      <div class="market-main">
+        <div class="market-ls">
+          <div class="table-head">
+            <div
+              class="active-gn gainer-head"
+              data-targets="gainer-table gainer-graph"
+            >
+              Top Gainer
+            </div>
+            <div class="looser-head">Top Looser</div>
+          </div>
+          <div class="tables">
+            <div class="gainer-table">
+              <table class="market-table" id="gainer-table">
+                <tr>
+                  <th>Stocks</th>
+                  <th>Price</th>
+                  <th>%Change</th>
+                </tr>
+                <tr>
+                  <td>Alfreds Futterkiste</td>
+                  <td>Maria Anders</td>
+                  <td>Germany</td>
+                </tr>
+                <tr>
+                  <td>Berglunds snabbköp</td>
+                  <td>Christina Berglund</td>
+                  <td>Sweden</td>
+                </tr>
+                <tr>
+                  <td>Centro comercial Moctezuma</td>
+                  <td>Francisco Chang</td>
+                  <td>Mexico</td>
+                </tr>
+                <tr>
+                  <td>Ernst Handel</td>
+                  <td>Roland Mendel</td>
+                  <td>Austria</td>
+                </tr>
+              </table>
+            </div>
+            <div class="looser-table">
+              <table class="market-table" id="looser-table">
+                <tr>
+                  <th>Stocks</th>
+                  <th>Price</th>
+                  <th>%Change</th>
+                </tr>
+                <tr>
+                  <td>Alfreds Futterkiste</td>
+                  <td>Maria Anders</td>
+                  <td>Germany</td>
+                </tr>
+                <tr>
+                  <td>Berglunds snabbköp</td>
+                  <td>Christina Berglund</td>
+                  <td>Sweden</td>
+                </tr>
+                <tr>
+                  <td>Centro comercial Moctezuma</td>
+                  <td>Francisco Chang</td>
+                  <td>Mexico</td>
+                </tr>
+                <tr>
+                  <td>Ernst Handel</td>
+                  <td>Roland Mendel</td>
+                  <td>Austria</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="market-rs">
+          <div class="market-graph-container">
+            <div id="market-graph"></div>
+          </div>
+          <div class="markets">
+            <div class="active-market-data market-data-container">
+              <h2 class="center">Nifty</h2>
+              <div class="row">
+                <div class="sub">75,542</div>
+                <div class="sub">(+3.5%)</div>
+              </div>
+              <div class="row">27.36</div>
+            </div>
+            <div class="market-data-container">
+              <h2 class="center">Sensex</h2>
+              <div class="row">
+                <div class="sub">75,542</div>
+                <div class="sub">(+3.5%)</div>
+              </div>
+              <div class="row">27.36</div>
             </div>
           </div>
         </div>
@@ -646,5 +772,113 @@
         <h3 class="footer-fade-link">Terms and Conditions</h3>
       </div>
     </footer>
+
+    <script>
+      anychart.onDocumentReady(function () {
+        // create data set on our data
+        var dataSet = anychart.data.set(getData());
+
+        // map data for the first series, take x from the zero column and value from the first column of data set
+        var firstSeriesData = dataSet.mapAs({ x: 0, value: 1 });
+
+        // map data for the second series, take x from the zero column and value from the second column of data set
+        var secondSeriesData = dataSet.mapAs({ x: 0, value: 2 });
+
+        // map data for the third series, take x from the zero column and value from the third column of data set
+        var thirdSeriesData = dataSet.mapAs({ x: 0, value: 3 });
+
+        // create line chart
+        var chart = anychart.line();
+
+        // turn on chart animation
+        chart.animation(true);
+
+        // set chart padding
+        chart.padding([10, 20, 5, 20]);
+
+        // turn on the crosshair
+        chart.crosshair().enabled(true).yLabel(false).yStroke(null);
+
+        // set tooltip mode to point
+        chart.tooltip().positionMode("point");
+
+        // set chart title text settings
+        chart.title("NIFTY MARKET");
+
+        // set yAxis title
+        chart.yAxis().title("Stock");
+        chart.xAxis().labels().padding(5);
+
+        // create first series with mapped data
+        var firstSeries = chart.line(firstSeriesData);
+        firstSeries.name("Stock 1");
+        firstSeries.hovered().markers().enabled(true).type("circle").size(4);
+        firstSeries
+          .tooltip()
+          .position("right")
+          .anchor("left-center")
+          .offsetX(5)
+          .offsetY(5);
+
+        // create second series with mapped data
+        var secondSeries = chart.line(secondSeriesData);
+        secondSeries.name("Stock 2");
+        secondSeries.hovered().markers().enabled(true).type("circle").size(4);
+        secondSeries
+          .tooltip()
+          .position("right")
+          .anchor("left-center")
+          .offsetX(5)
+          .offsetY(5);
+
+        // create third series with mapped data
+        var thirdSeries = chart.line(thirdSeriesData);
+        thirdSeries.name("Stock 3");
+        thirdSeries.hovered().markers().enabled(true).type("circle").size(4);
+        thirdSeries
+          .tooltip()
+          .position("right")
+          .anchor("left-center")
+          .offsetX(5)
+          .offsetY(5);
+
+        // turn the legend on
+        chart.legend().enabled(true).fontSize(13).padding([0, 0, 10, 0]);
+
+        // set container id for the chart
+        chart.container("market-graph");
+        // initiate chart drawing
+        chart.draw();
+      });
+
+      function getData() {
+        return [
+          ["1986", 3.6, 2.3, 2.8, 11.5],
+          ["1987", 7.1, 4.0, 4.1, 14.1],
+          ["1988", 8.5, 6.2, 5.1, 17.5],
+          ["1989", 9.2, 11.8, 6.5, 18.9],
+          ["1990", 10.1, 13.0, 12.5, 20.8],
+          ["1991", 11.6, 13.9, 18.0, 22.9],
+          ["1992", 16.4, 18.0, 21.0, 25.2],
+          ["1993", 18.0, 23.3, 20.3, 27.0],
+          ["1994", 13.2, 24.7, 19.2, 26.5],
+          ["1995", 12.0, 18.0, 14.4, 25.3],
+          ["1996", 3.2, 15.1, 9.2, 23.4],
+          ["1997", 4.1, 11.3, 5.9, 19.5],
+          ["1998", 6.3, 14.2, 5.2, 17.8],
+          ["1999", 9.4, 13.7, 4.7, 16.2],
+          ["2000", 11.5, 9.9, 4.2, 15.4],
+          ["2001", 13.5, 12.1, 1.2, 14.0],
+          ["2002", 14.8, 13.5, 5.4, 12.5],
+          ["2003", 16.6, 15.1, 6.3, 10.8],
+          ["2004", 18.1, 17.9, 8.9, 8.9],
+          ["2005", 17.0, 18.9, 10.1, 8.0],
+          ["2006", 16.6, 20.3, 11.5, 6.2],
+          ["2007", 14.1, 20.7, 12.2, 5.1],
+          ["2008", 15.7, 21.6, 10, 3.7],
+          ["2009", 12.0, 22.5, 8.9, 1.5],
+        ];
+      }
+    </script>
   </body>
 </html>
