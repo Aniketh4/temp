@@ -22,6 +22,11 @@
     <link rel="stylesheet" href="./assets/vid-n-pods.css" />
   </head>
   <body>
+    <div class="video-modal">
+      <video src="./assets/img/sample.mp4"></video>
+      <div class="cross-vid">CLOSE</div>
+    </div>
+
     <nav>
       <h2 class="logo">The Bombay Forum</h2>
       <h2 class="mob-logo">TBF</h2>
@@ -41,6 +46,25 @@
       <div class="hamburger">
         <img src="./assets/img/menu.png" alt="" />
       </div>
+      <div class="sidebar" id="sidebar">
+        <div class="cross-btn">X</div>
+        <div class="side-main">
+          <ul class="link-ul side-ls">
+            <li><a href="">Home</a></li>
+            <li><a href="">Home</a></li>
+            <li><a href="">Home</a></li>
+            <li><a href="">Home</a></li>
+            <li><a href="">Home</a></li>
+          </ul>
+          <ul class="link-ul side-rs">
+            <li><a href="">Home</a></li>
+            <li><a href="">Home</a></li>
+            <li><a href="">Home</a></li>
+            <li><a href="">Home</a></li>
+            <li><a href="">Home</a></li>
+          </ul>
+        </div>
+      </div>
     </nav>
 
     <div class="snp-marquee">
@@ -49,6 +73,10 @@
         <label data-graphid="SnP 10.13289">S&P 10.13289</label>
         <label data-graphid="SnP 10.13289">S&P 10.13289</label>
       </marquee>
+      <div class="container-modal">
+        <div id="container"></div>
+        <div class="cross-cm">CLOSE</div>
+      </div>
     </div>
 
     <div class="domains-arena">
@@ -511,12 +539,7 @@
       <div class="market-main">
         <div class="market-ls">
           <div class="table-head">
-            <div
-              class="active-gn gainer-head"
-              data-targets="gainer-table gainer-graph"
-            >
-              Top Gainer
-            </div>
+            <div class="active-gn gainer-head">Top Gainer</div>
             <div class="looser-head">Top Looser</div>
           </div>
           <div class="tables">
@@ -585,7 +608,7 @@
             <div id="market-graph"></div>
           </div>
           <div class="markets">
-            <div class="active-market-data market-data-container">
+            <div class="active-market-data market-data-container nifty-cont">
               <h2 class="center">Nifty</h2>
               <div class="row">
                 <div class="sub">75,542</div>
@@ -593,7 +616,7 @@
               </div>
               <div class="row">27.36</div>
             </div>
-            <div class="market-data-container">
+            <div class="market-data-container sensex-cont">
               <h2 class="center">Sensex</h2>
               <div class="row">
                 <div class="sub">75,542</div>
@@ -609,26 +632,12 @@
       <div class="rajdhani-layout"><h1>Video</h1></div>
       <div class="vid-flex-container">
         <div class="vid-flex">
-          <div class="short-vid">
+          <div class="short-vid" class="vid-tb">
             <img src="./assets/img/video.png" alt="" />
             <div class="vid-news">NEWS</div>
             <div class="vid-title">Video Title</div>
           </div>
-          <div class="long-vid">
-            <img src="./assets/img/video.png" alt="" />
-
-            <div class="vid-news">NEWS</div>
-            <div class="vid-title">Video Title</div>
-          </div>
-        </div>
-        <div class="vid-flex">
-          <div class="long-vid">
-            <img src="./assets/img/video.png" alt="" />
-
-            <div class="vid-news">NEWS</div>
-            <div class="vid-title">Video Title</div>
-          </div>
-          <div class="short-vid">
+          <div class="long-vid" class="vid-tb">
             <img src="./assets/img/video.png" alt="" />
 
             <div class="vid-news">NEWS</div>
@@ -636,19 +645,33 @@
           </div>
         </div>
         <div class="vid-flex">
-          <div class="short-vid">
+          <div class="long-vid" class="vid-tb">
             <img src="./assets/img/video.png" alt="" />
 
             <div class="vid-news">NEWS</div>
             <div class="vid-title">Video Title</div>
           </div>
-          <div class="short-vid">
+          <div class="short-vid" class="vid-tb">
             <img src="./assets/img/video.png" alt="" />
 
             <div class="vid-news">NEWS</div>
             <div class="vid-title">Video Title</div>
           </div>
-          <div class="short-vid">
+        </div>
+        <div class="vid-flex">
+          <div class="short-vid" class="vid-tb">
+            <img src="./assets/img/video.png" alt="" />
+
+            <div class="vid-news">NEWS</div>
+            <div class="vid-title">Video Title</div>
+          </div>
+          <div class="short-vid" class="vid-tb">
+            <img src="./assets/img/video.png" alt="" />
+
+            <div class="vid-news">NEWS</div>
+            <div class="vid-title">Video Title</div>
+          </div>
+          <div class="short-vid" class="vid-tb">
             <img src="./assets/img/video.png" alt="" />
 
             <div class="vid-news">NEWS</div>
@@ -661,54 +684,78 @@
       <div class="rajdhani-layout"><h1>Podcast</h1></div>
       <div class="podcast-main">
         <div class="podcast-card">
-          <img src="./assets/img/podcast.png" alt="" />
-          <div class="bill-name">Rakshanda Giri</div>
-          <div class="bill-sub">Billionare</div>
+          <div class="top-pods">
+            <img src="./assets/img/podcast.png" alt="" />
+            <div class="pod-data">
+              <div class="bill-name">Rakshanda Giri</div>
+              <div class="bill-sub">Billionare</div>
+            </div>
+          </div>
           <div class="bill-desc">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum,
             nostrum?
           </div>
         </div>
         <div class="podcast-card">
-          <img src="./assets/img/podcast.png" alt="" />
-          <div class="bill-name">Rakshanda Giri</div>
-          <div class="bill-sub">Billionare</div>
+          <div class="top-pods">
+            <img src="./assets/img/podcast.png" alt="" />
+            <div class="pod-data">
+              <div class="bill-name">Rakshanda Giri</div>
+              <div class="bill-sub">Billionare</div>
+            </div>
+          </div>
           <div class="bill-desc">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum,
             nostrum?
           </div>
         </div>
         <div class="podcast-card">
-          <img src="./assets/img/podcast.png" alt="" />
-          <div class="bill-name">Rakshanda Giri</div>
-          <div class="bill-sub">Billionare</div>
+          <div class="top-pods">
+            <img src="./assets/img/podcast.png" alt="" />
+            <div class="pod-data">
+              <div class="bill-name">Rakshanda Giri</div>
+              <div class="bill-sub">Billionare</div>
+            </div>
+          </div>
           <div class="bill-desc">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum,
             nostrum?
           </div>
         </div>
         <div class="podcast-card">
-          <img src="./assets/img/podcast.png" alt="" />
-          <div class="bill-name">Rakshanda Giri</div>
-          <div class="bill-sub">Billionare</div>
+          <div class="top-pods">
+            <img src="./assets/img/podcast.png" alt="" />
+            <div class="pod-data">
+              <div class="bill-name">Rakshanda Giri</div>
+              <div class="bill-sub">Billionare</div>
+            </div>
+          </div>
           <div class="bill-desc">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum,
             nostrum?
           </div>
         </div>
         <div class="podcast-card">
-          <img src="./assets/img/podcast.png" alt="" />
-          <div class="bill-name">Rakshanda Giri</div>
-          <div class="bill-sub">Billionare</div>
+          <div class="top-pods">
+            <img src="./assets/img/podcast.png" alt="" />
+            <div class="pod-data">
+              <div class="bill-name">Rakshanda Giri</div>
+              <div class="bill-sub">Billionare</div>
+            </div>
+          </div>
           <div class="bill-desc">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum,
             nostrum?
           </div>
         </div>
         <div class="podcast-card">
-          <img src="./assets/img/podcast.png" alt="" />
-          <div class="bill-name">Rakshanda Giri</div>
-          <div class="bill-sub">Billionare</div>
+          <div class="top-pods">
+            <img src="./assets/img/podcast.png" alt="" />
+            <div class="pod-data">
+              <div class="bill-name">Rakshanda Giri</div>
+              <div class="bill-sub">Billionare</div>
+            </div>
+          </div>
           <div class="bill-desc">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum,
             nostrum?
@@ -851,6 +898,83 @@
         chart.draw();
       });
 
+      anychart.onDocumentReady(function () {
+        // create data set on our data
+        var dataSet = anychart.data.set(getData());
+
+        // map data for the first series, take x from the zero column and value from the first column of data set
+        var firstSeriesData = dataSet.mapAs({ x: 0, value: 1 });
+
+        // map data for the second series, take x from the zero column and value from the second column of data set
+        var secondSeriesData = dataSet.mapAs({ x: 0, value: 2 });
+
+        // map data for the third series, take x from the zero column and value from the third column of data set
+        var thirdSeriesData = dataSet.mapAs({ x: 0, value: 3 });
+
+        // create line chart
+        var chart = anychart.line();
+
+        // turn on chart animation
+        chart.animation(true);
+
+        // set chart padding
+        chart.padding([10, 20, 5, 20]);
+
+        // turn on the crosshair
+        chart.crosshair().enabled(true).yLabel(false).yStroke(null);
+
+        // set tooltip mode to point
+        chart.tooltip().positionMode("point");
+
+        // set chart title text settings
+        chart.title("NIFTY MARKET");
+
+        // set yAxis title
+        chart.yAxis().title("Stock");
+        chart.xAxis().labels().padding(5);
+
+        // create first series with mapped data
+        var firstSeries = chart.line(firstSeriesData);
+        firstSeries.name("Stock 1");
+        firstSeries.hovered().markers().enabled(true).type("circle").size(4);
+        firstSeries
+          .tooltip()
+          .position("right")
+          .anchor("left-center")
+          .offsetX(5)
+          .offsetY(5);
+
+        // create second series with mapped data
+        var secondSeries = chart.line(secondSeriesData);
+        secondSeries.name("Stock 2");
+        secondSeries.hovered().markers().enabled(true).type("circle").size(4);
+        secondSeries
+          .tooltip()
+          .position("right")
+          .anchor("left-center")
+          .offsetX(5)
+          .offsetY(5);
+
+        // create third series with mapped data
+        var thirdSeries = chart.line(thirdSeriesData);
+        thirdSeries.name("Stock 3");
+        thirdSeries.hovered().markers().enabled(true).type("circle").size(4);
+        thirdSeries
+          .tooltip()
+          .position("right")
+          .anchor("left-center")
+          .offsetX(5)
+          .offsetY(5);
+
+        // turn the legend on
+        chart.legend().enabled(true).fontSize(13).padding([0, 0, 10, 0]);
+
+        // set container id for the chart
+        chart.container("container");
+        // initiate chart drawing
+        chart.draw();
+      });
+
       function getData() {
         return [
           ["1986", 3.6, 2.3, 2.8, 11.5],
@@ -880,5 +1004,7 @@
         ];
       }
     </script>
+    <script src="./assets/sidebar.js"></script>
+    <script src="./assets/home-animations.js"></script>
   </body>
 </html>

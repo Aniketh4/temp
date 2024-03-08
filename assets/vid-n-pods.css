@@ -93,6 +93,7 @@
     display: inline-block;
     overflow: hidden;
     position: relative;
+    padding: 1rem;
 }
 
 .podcast-card img{
@@ -110,16 +111,62 @@
     display: none;
 }
 
-.bill-sub{
+.top-pods{
+    height: 100%;
+    width: 100%;
+}
+
+.top-pods .bill-sub{
     position: relative;
     left: 75%;
-    top: 10%;
+    top: 40%;
     background-color: white;
     height: fit-content;
     color: black;
     display: inline;
     padding: .3rem 1rem;
     border-radius: 8px;
+    z-index: 2;
+}
+
+.podcast-card:hover{
+    background-color: black;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    text-align: right;
+}   
+
+.podcast-card:hover .top-pods{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    text-align: right;
+}
+
+
+
+.podcast-card:hover img{
+    object-fit: contain;
+    pointer-events: none;
+    position: inherit;
+    width: 50%;
+    height: 50%;
+    border-radius: 12px;
+    z-index: 1;
+
+}
+
+.video-modal{
+    
+}
+
+.podcast-card:hover .bill-desc, .podcast-card:hover .bill-name, .podcast-card:hover .bill-sub{
+    display: block;
+    text-align: right;
+    position: unset;
+    background-color: transparent;
+    color: white;
 }
 
 @media screen and (max-width: 800px) {

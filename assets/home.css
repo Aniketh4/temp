@@ -7,6 +7,7 @@
 
 marquee{margin-top: 12px;background-color: black;color: aliceblue; padding: 1rem 0rem;}
 
+
 .domains-arena{
     display: flex;
     padding: 2rem 2rem;
@@ -65,7 +66,11 @@ marquee{margin-top: 12px;background-color: black;color: aliceblue; padding: 1rem
     padding: 1rem;
     border-radius: 12px;
     border: 2px solid black;
+    transition: all ease-in-out 400ms;
+}
 
+.white-card:hover{
+    transform: translateY(-.5rem);
 }
 
 .card-title{
@@ -142,10 +147,15 @@ marquee{margin-top: 12px;background-color: black;color: aliceblue; padding: 1rem
     padding: 1rem;
     align-items: flex-start;
     gap: 1rem;
+    cursor: pointer;
 }
 
 .finance-ls .row-title{
     font-weight: bold;
+}
+
+.finance-ls:hover .row-title{
+    color: #F75648;
 }
 
 .finance-rs{
@@ -195,6 +205,11 @@ marquee{margin-top: 12px;background-color: black;color: aliceblue; padding: 1rem
     display: flex;
     color: white;
     border-radius: 1rem;
+    cursor: pointer;
+}
+
+.bill-ls:hover .num-1-title{
+    color: #F75648;
 }
 
 .num-1{
@@ -346,7 +361,12 @@ marquee{margin-top: 12px;background-color: black;color: aliceblue; padding: 1rem
     position: relative;
     width: 100%;
     color: #fff;
-    
+    border-radius: 12px;
+}
+
+.flex-card:hover{
+    background-color: #000000;
+
 }
 
 .flex-card img{
@@ -515,6 +535,37 @@ marquee{margin-top: 12px;background-color: black;color: aliceblue; padding: 1rem
     border-radius: 12px;
 }
 
+.container-modal, .video-modal{
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(255, 255, 255, 0.577);
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    
+    align-items: center;
+    justify-content: center;
+    display: none;
+    gap: 1rem;
+    z-index: 1;
+}
+
+.video-modal{
+    position: fixed;
+}
+
+.cross-cm, .cross-vid{
+    background-color: black;
+    color: white;
+    padding: .4rem 1rem;
+    border-radius: 8px;
+}
+
+
+
+
+
 .anychart-credits-text, .anychart-credits-logo{
     display: none;
 }
@@ -582,7 +633,7 @@ marquee{margin-top: 12px;background-color: black;color: aliceblue; padding: 1rem
         left: 50%;
     }
     .num-1{
-        width: 90vw;
+        width: 80vw;
     }
 
     .bill-rs{
@@ -611,4 +662,7 @@ marquee{margin-top: 12px;background-color: black;color: aliceblue; padding: 1rem
         flex-direction: column;
         padding: 1rem;
     }
+    
+
+
 }
