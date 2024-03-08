@@ -1,10 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Jura:wght@300..700&family=Rajdhani&display=swap');
+:root{
+    --blue-col : #0033A0;
+    --fade-col : #D9D9D9;
+}
+
 
 *{
     font-family: "Rajdhani", sans-serif;
   font-weight: 400;
   font-style: normal;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
+
+
 
 nav{
     display: flex;
@@ -32,8 +42,74 @@ a{
 }
 
 .magazine-link{
-    padding: 1rem;
+    padding: .4rem 1rem;
     background: rgb(2,0,36);
-    background: linear-gradient(27deg, rgba(2,0,36,1) 0%, rgba(247,86,72,1) 110%);
+    background: linear-gradient(92.96deg, #F75648 0%, #0033A0 100%);
+
     border-radius: 12px;
+}
+
+footer{
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem ;
+    color: var(--fade-col);
+    margin: 0;
+}
+
+.footer-top{
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+h1, h2, h3{
+    text-transform: uppercase;
+}
+
+.blue-text{
+    color: var(--blue-col);
+}
+
+.footer-news{
+    padding: .5rem 1rem ;
+}
+
+.first-ft-news{
+    margin-top: 2rem;
+}
+
+.footer-rs{
+    justify-self: flex-start;
+    width: 30%;
+    font-size: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    color: var(--fade-col);
+    gap: 2rem;
+}
+
+.bottom-footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 1rem;
+    font-size: .7rem;
+    color: #7D7D7D;
+}
+
+.rajdhani-layout{
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem;
+    align-items: center;
+}
+
+h3.title-3{
+    font-weight: 700;
+    font-size: 2rem;
 }

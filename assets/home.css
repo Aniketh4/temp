@@ -1,12 +1,399 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+:root{
+    --blue-col : #0033A0;
+    --fade-col : #D9D9D9;
 }
+
+
 
 marquee{margin-top: 12px;background-color: black;color: aliceblue; padding: 1rem 0rem;}
 
 .domains-arena{
     display: flex;
+    padding: 2rem 2rem;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.domains-arena .flex{
+    width: 20%;
+}
+
+.domains-arena .flex-1, .domains-arena .flex-2{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url(./img/download.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+}
+
+.domains-arena .flex {
+    padding: 1rem;
+    border-radius: 12px;
+}
+
+
+
+.flex-1 .dashboard-card-description{
+    padding-top: 4rem;
     
+}
+
+.dashboard-card-description{
+    text-align: center;
+}
+
+.trending-btn{
+    color: #CE0000;
+    font-size: .7rem;
+}
+
+.flex-2{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+.trending-card{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+}
+
+.white-card{
+    padding: 1rem;
+    border-radius: 12px;
+    border: 2px solid black;
+
+}
+
+.card-title{
+    text-transform: uppercase;
+    font-size: 1.2rem;
+
+}
+
+.white-card .card-desc{
+    /* margin-top: 1rem; */
+    padding: 1rem 0rem;
+    font-size: .7rem;
+    color: #5B5B5B;
+    text-align: center;
+}
+
+
+.rajdhani-layout .date{
+    font-weight: 1000;
+    border-bottom: 2px solid black;
+    width: 100%;
+    /* display: flex; */
+    /* align-items: flex-end; */
+    text-align: right;
+}
+
+.finance-main{
+    display: flex;
+    padding: 2rem;
+    /* gap: 10%; */
+    justify-content: space-around;
+}
+
+.finance-main .ls-finance{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    width: 30%;
+    padding-bottom: 0;
+}
+
+.ls-finance .row{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: #7D7D7D; */
+}
+
+.ls-finance .row:nth-child(even){
+    flex-direction: row-reverse;
+}
+
+.ls-finance .row .rs{
+    padding: 1rem;
+    background-color: black;
+
+}
+
+.ls-finance .row .rs img{
+    border-radius: 50%;
+
+    /* padding: 1rem; */
+}
+
+.ls-finance .row .rs img:hover{
+    border-radius: 0;
+    object-fit: contain;
+    padding: 0;
+}
+
+.finance-ls{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.finance-ls .row-title{
+    font-weight: bold;
+}
+
+.finance-rs{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.finance-news{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.finance-news .news-header{
+    display: flex;
+    gap: 2rem;
+}
+
+.finance-news .news-header div{
+    font-weight: bold;
+
+}
+
+.finance-news .news-sub-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 3rem;
+}
+
+.rajdhani-layout h1{
+    font-weight: bold;
+}
+
+.bill-main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15%;
+}
+
+.bill-ls{
+    background-color: black;
+    height: 70vh;
+    width: 49%;
+    display: flex;
+    color: white;
+    border-radius: 1rem;
+}
+
+.num-1{
+    padding: 2rem;
+    padding-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+}
+
+.outer-cube{
+    background-color: #fff;
+    /* border: 1px solid black; */
+    height: 70%;
+    width: 60%;
+    border-radius: 1rem;
+
+}
+
+.inner-cube{
+
+    background: linear-gradient(112.74deg, #000000 0.94%, #0033A0 98.61%);
+
+    width: 95%;
+    height: 95%;
+    position: relative;
+    right: 0%;
+    left:5%;
+    border-radius: 1rem;
+}
+
+.inner-cube .bill-img{
+    position: relative;
+    bottom: 0%;
+    top: 56%;
+    right: 0%;
+    left: 45%;
+}
+
+.bill-rs{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    gap: 2rem;
+}
+
+.bill-rs .bill{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+    gap: .5rem;
+}
+
+.bill-rs .bill .bill-head{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 1.5rem;
+    gap: 2rem;
+}
+.bill-rs .bill .bill-head div{
+    
+    font-weight: bolder;
+}
+
+.bill-rs .bill .bill-desc{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    width: 100%;    
+    align-self: flex-start;
+
+}
+
+.bill-img img{
+    height: 60px;
+}
+
+.company-name{
+    font-weight: bold;
+}
+
+.tech-main{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.tech-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    width: 50%;
+}
+
+.tech-grid #grid-card{
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 15rem;
+    border-radius: 12px;
+    background-color: #00000075;
+    color: white;
+    display: flex;
+    align-items: flex-end;
+}
+
+.tech-grid #grid-card img{
+    pointer-events: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    z-index: -1;
+}
+
+.tech-grid #grid-card .tech-data{
+    padding: 1rem;
+    display: flex;
+    flex-direction: column; 
+    gap: 1rem;
+
+}
+
+.tech-grid #grid-card .tech-data .tech-header{
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tech-grid #grid-card .tech-data .tech-header div{
+    font-weight: bold;
+
+}
+
+.tech-flex{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.flex-card{
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    color: #fff;
+    
+}
+
+.flex-card img{
+    pointer-events: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    z-index: -1;
+
+}
+
+.flex-card .flex-data{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+}
+
+.flex-card .flex-data .flex-title{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.lifestyle-arena .flex-3{
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+    padding: 2rem;
+}
+
+.div-1{
+    background-color: black;
+    color: white;
+    border-radius: 12px;
+}
+
+.long-header{
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.long-desc{
+    padding: 1rem;
 }
