@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Jura:wght@300..700&family=Rajdhani&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap');
+
+
 :root{
     --blue-col : #0033A0;
     --fade-col : #D9D9D9;
@@ -6,7 +8,7 @@
 
 
 *{
-    font-family: "Rajdhani", sans-serif;
+  font-family: "Rajdhani", sans-serif;
   font-weight: 400;
   font-style: normal;
   padding: 0;
@@ -29,7 +31,7 @@ nav{
 
 ul.link-ul{
     display: flex;
-    gap: 1rem;
+    gap: 2.5rem;
     list-style-type: none;
 }
 
@@ -175,6 +177,12 @@ a{
 
 .cross-btn{
     color: white;
+}
+
+.center-nav li a{
+    font-size: 1.2rem;
+
+    font-weight: bolder;
 }
 
 
