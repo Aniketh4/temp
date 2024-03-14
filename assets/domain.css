@@ -87,8 +87,9 @@ header .news-num{
 }
 
 .active-tab{
-    background-color: #002066;
+    background: linear-gradient(180deg, #3865c5, #002066 20%);
     color: white;
+   
 }
 
 .hamburger, .btm-btn{
