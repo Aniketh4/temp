@@ -106,6 +106,8 @@
     border-radius: 12px;
     z-index: -1;
     top: -10%;
+    left: 0%;
+
     size: 100%;
 }
 
@@ -129,6 +131,8 @@
     padding: .3rem 1rem;
     border-radius: 8px;
     z-index: 2;
+    overflow: hidden;
+    display: none;
 }
 
 .podcast-card:hover{
@@ -142,26 +146,32 @@
 .podcast-card:hover .top-pods{
     display: flex;
     align-items: flex-start;
-    justify-content: space-between;
+    justify-content: flex-end;
     text-align: right;
 }
 
 
 
 .podcast-card:hover img{
-    object-fit: contain;
+    object-fit: cover;
+    object-position: top;
     pointer-events: none;
-    position: inherit;
-    width: 50%;
-    height: 50%;
+    position: absolute;
+    width: 100%;
+    height: 120%;
     border-radius: 12px;
     z-index: 1;
+    left: 0%;
+    opacity: .3;
+    top: -10%;
+    size: 100%;
+
 
 }
 
 
 
-.podcast-card:hover .bill-desc, .podcast-card:hover .bill-name, .podcast-card:hover .bill-sub{
+.podcast-card:hover .bill-desc, .podcast-card:hover .bill-name{
     display: block;
     text-align: right;
     position: unset;

@@ -141,7 +141,9 @@ main.body-main{
     flex-direction: column;
     border: 1px solid black;
     width: 30%;
+    padding: 1rem;
     padding-bottom: 0;
+
 }
 
 .ls-finance .row{
@@ -154,9 +156,8 @@ main.body-main{
 
 
 .ls-finance .row .rs{
-    padding: 1rem;
-    background-color: black;
-
+    /* padding: 1rem; */
+    background-color: #000000;
 }
 
 .ls-finance .row .rs img{
@@ -368,6 +369,10 @@ main.body-main{
 
 }
 
+.tech-grid #grid-card:hover .tech-title{
+    text-decoration: underline;
+}
+
 .tech-grid #grid-card .tech-data .tech-header{
     font-size: 1.2rem;
     display: flex;
@@ -431,9 +436,13 @@ main.body-main{
 }
 
 .div-1{
-    background-color: black;
-    color: white;
+    color: black;
+    border: 1px solid black;
     border-radius: 12px;
+}
+
+.div-1:hover .long-title{
+    text-decoration: 1px underline;
 }
 
 .long-header{
@@ -447,7 +456,7 @@ main.body-main{
     padding: 1rem;
 }
 
-.gainer-table, .looser-table{
+.gainer-table, .looser-table, .bill-table-div{
      border-radius: 12px;
     overflow: hidden;
 }
@@ -517,13 +526,19 @@ main.body-main{
 }
 
 
-.market-table {
+.market-table, .bill-table {
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 100%;
 }
 
-.market-table td, .market-table th {
+.bill-table-div{
+    width: 80%;
+}
+
+
+
+.market-table td, .market-table th, .bill-table th, .bill-table td {
     text-transform: uppercase;
     padding: 8px;
 }
@@ -536,6 +551,48 @@ main.body-main{
     background-color: #DADE10;
     font-weight: bold;
     color: black;
+}
+
+.bill-table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    font-weight: bold;
+    color: gray;
+    padding-right: 1rem;
+    border-bottom: 1px solid gray;
+}
+
+
+
+.bill-table td{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    border-bottom: 1px solid rgb(192, 192, 192);
+}
+
+.bill-tbl-rank{
+    color: gray;
+    font-weight: bold;
+}
+
+.bill-tbl-name{
+    font-weight: bold;
+}
+
+.bill-tbl-down{
+    color: red;
+    font-weight: bold;
+}
+
+.bill-tbl-up{
+    color: green;
+    font-weight: bold;
+}
+
+.bill-tbl-down span img{
+    transform: rotateX(180deg);
 }
 
 .market-ls{
