@@ -11,6 +11,7 @@
     color: aliceblue;
     padding: .5rem 0rem;
     display: flex;
+    align-items: center;
 }
 
 #marquee{
@@ -458,7 +459,11 @@ main.body-main{
 
 .gainer-table, .looser-table, .bill-table-div{
      border-radius: 12px;
-    overflow: hidden;
+    width: 100%;
+     overflow: scroll;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .looser-table{
@@ -530,6 +535,9 @@ main.body-main{
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-self: center;
 }
 
 .bill-table-div{
@@ -718,13 +726,22 @@ main.body-main{
     display: none;
 }
 
-@media screen and (max-width:800px) {
+@media screen and (max-width:1000px) {
+
+    .white-card{
+        display: none;
+    }
     .domains-arena{
         flex-direction: column;
+        padding: 1rem;
+        align-items: center;
     }
+
+
 
     .domains-arena .flex{
         width: 90%;
+        border: none;
     }
 
     .domains-arena .flex-2{
@@ -738,8 +755,28 @@ main.body-main{
     .finance-main .row, .finance-main .row:nth-child(even){
         flex-direction: column-reverse;
         border: 1px solid black;
-        padding: 1rem;
+        /* padding: 1rem; */
     
+    }
+
+    .ls-finance .row .rs{
+        width: 100%;
+    }
+
+    .ls-finance .row .rs img{
+        border-radius: 0;
+        object-fit: cover;
+        padding: 0;
+        /* filter: opacity(1); */
+        width: 100%;
+    }
+
+    .ls-finance .row .rs img:hover{
+        border-radius: 0;
+        object-fit: cover;
+        padding: 0;
+        filter: opacity(1);
+        width: 100%;
     }
     
     
@@ -810,6 +847,22 @@ main.body-main{
         flex-direction: column;
         padding: 1rem;
     }
+    
+    body{
+        overflow-x: hidden;
+        width: 100vw;
+    }
+
+    main.body-main{
+        flex-direction: column;
+        overflow-x: hidden;
+        width: 100%;
+    }
+    
+    div.ad{
+        background-color: rebeccapurple;
+    }
+
     
 
 

@@ -2,11 +2,15 @@ header{
     background-color: black;
     color: white;
     padding: 2rem;
+    height: 100vh;
+   
 }
 
 body{
     overflow-x: hidden;
 }
+
+
 
 .domain-title{
     font-weight: bold;
@@ -24,21 +28,49 @@ body{
     justify-content: space-between;
     padding: 1rem;
     align-items: center;
+    height: 80%;
 }
 
 .header-ls{
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    height: 100%;
+    gap: 5rem;
+    align-items: center;
+    justify-content: center;
 }
 
-header .news{
+header .news .news-data{
     display: flex;
     flex-direction: column;
     gap: .4rem;
     font-size: 1.1rem;
     padding-left: 1rem;
 }
+
+header .news {
+    display: flex;
+    gap: .4rem;
+    font-size: 1.1rem;
+    padding-left: 1rem;
+}
+
+.progress-bar{
+    height: 100%;
+    width: 2px;
+    display: flex;
+    align-items: flex-start;
+    border-radius: 12px;
+}
+
+.progress-bar #fill-1{
+    border-radius: 12px;
+    width: 100%;
+    height: 100%;
+    background-color: #3865c5;
+}
+
+
 
 header .news-title{
     color: #A6A6A6;
@@ -50,9 +82,6 @@ header .news-num{
     font-weight: bold;
 }
 
-.active-news{
-    border-left: 3px solid #467EF3;
-}
 
 .active-news .news-num{
     color: #467EF3;
@@ -73,6 +102,10 @@ header .news-num{
     display: flex;
     gap: 4rem;
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    justify-self: center;
+    width: 90%;
 }
 
 .tabs .tab{
@@ -80,7 +113,7 @@ header .news-num{
     font-weight: bold;
     letter-spacing: 2px;
     border: 1px solid black;
-    padding: .2rem 2rem;
+    padding: .2rem 4rem;
     display: flex;
     align-items: center;
     border-radius: 24px;
@@ -200,6 +233,8 @@ header .news-num{
     }
     .header-ls{
         padding: 0;
+    gap: 2rem;
+
     }
     .tab-bar{
         flex-direction: column-reverse;

@@ -7,18 +7,24 @@
     <link rel="stylesheet" href="./assets/navbar.css" />
     <link rel="stylesheet" href="./assets/domain.css" />
     <link rel="stylesheet" href="./assets/vid-n-pods.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
   </head>
   <body>
-    <header>
+    <header id="scroll-header">
       <h1 class="domain-title">Finance</h1>
       <h2 class="trending-btn">Trending</h2>
       <div class="header-arena">
         <div class="header-ls">
           <div class="active-news news">
-            <div class="news-num">#1</div>
-            <div class="news-title">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi,
-              eaque?
+            <div class="progress-bar">
+              <div id="fill-1"></div>
+            </div>
+            <div class="news-data">
+              <div class="news-num">#1</div>
+              <div class="news-title">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi,
+                eaque?
+              </div>
             </div>
           </div>
           <div class="news">
@@ -185,7 +191,7 @@
           </div>
         </div>
       </div>
-      <div class="video-arena">
+      <!-- <div class="video-arena">
         <div class="rajdhani-layout"><h1>Video</h1></div>
         <div class="vid-flex-container">
           <div class="vid-flex">
@@ -236,8 +242,8 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="podcast-arena">
+      </div> -->
+      <!-- <div class="podcast-arena">
         <div class="rajdhani-layout"><h1>Podcast</h1></div>
         <div class="podcast-main">
           <div class="podcast-card">
@@ -295,7 +301,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </main>
     <div class="bottom-tab-arena">
       <div class="active-btm bottom-tab">Finance</div>
@@ -381,6 +387,7 @@
         <h3 class="footer-fade-link">Terms and Conditions</h3>
       </div>
       <script src="./assets/sidebar.js"></script>
+      <script src="./assets/scroll-event.js"></script>
     </footer>
   </body>
 </html>
