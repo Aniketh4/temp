@@ -1,5 +1,10 @@
-var scrollHead = document.querySelector("#scroll-header");
+var header = document.querySelector("#header-ls");
+var news = header.querySelectorAll(".news");
 
-window.addEventListener("scroll", () => {
-
+news.forEach((n) => {
+    n.addEventListener("mouseover", () => {
+        // console.log(n);
+        document.querySelector("#header-img").src = "./assets/img/" + n.dataset.srce;
+    })
 })
+

@@ -2,6 +2,7 @@ header{
     background-color: black;
     color: white;
     padding: 2rem;
+    min-height: 100vh;
     height: 100vh;
    
 }
@@ -29,13 +30,15 @@ body{
     padding: 1rem;
     align-items: center;
     height: 80%;
+    /* gap: 2rem; */
 }
 
 .header-ls{
     display: flex;
     flex-direction: column;
     height: 100%;
-    gap: 5rem;
+    gap: 2rem;
+    justify-content: space-between;
     align-items: center;
     justify-content: center;
 }
@@ -53,6 +56,13 @@ header .news {
     gap: .4rem;
     font-size: 1.1rem;
     padding-left: 1rem;
+    flex-direction: column;
+    transition: all ease-in-out 400ms;
+    cursor: pointer;
+}
+
+.header-ls .news:hover{
+    border-left: 2px solid #3865c5 ;
 }
 
 .progress-bar{
@@ -161,7 +171,6 @@ header .news-num{
 .flex-news .news{
     display: flex;
     gap: 2rem;
-
 }
 
 .flex-news .news-number, .flex-news .news-title{
@@ -170,6 +179,51 @@ header .news-num{
 
 .flex-img img{
     height: 10rem;
+}
+
+aside{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.new-v-news{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    width: 90%;
+}
+
+.new-v-news .news{
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.new-v-news .news .news-data{
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.new-v-news .news .news-data .news-title{
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.ad{
+    width: 10%;
+}
+
+.div-main{
+    display: flex;
 }
 
 .bottom-tab-arena{
@@ -224,8 +278,14 @@ header .news-num{
 
 
 @media screen and (max-width : 800px) {
+    
+    header{
+        height: auto;
+    }
+    
     .header-arena{
         flex-direction: column-reverse;
+
     }
 
     .header-arena img{
@@ -248,12 +308,22 @@ header .news-num{
     }
     .flex{
         flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
     }
     .flex:nth-child(even){
         flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
     }
     .flex-img img{
         height: 7rem;
+    }
+
+    .flex-news .news-number{
+        display: none;
     }
 
 
