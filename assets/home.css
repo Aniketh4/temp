@@ -738,6 +738,10 @@ main.body-main{
     display: none;
 }
 
+.life-long-img{
+    width: 100%;
+}
+
 .article-modal .cross{
     align-self: flex-end;
 }
