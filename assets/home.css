@@ -770,6 +770,15 @@ main.body-main{
 
 @media screen and (max-width:1000px) {
 
+    .snp-marquee{
+        padding: .2rem;
+    }
+
+    marquee{
+        height: 1rem;
+
+    }
+
     .white-card{
         display: none;
     }
