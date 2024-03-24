@@ -849,7 +849,7 @@ main.body-main{
     .bill-main{
         padding: 1rem;
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
     }
  
     .inner-cube{
@@ -888,10 +888,13 @@ main.body-main{
         flex-direction: column;
         padding: 2rem;
         gap: 3rem;
+        align-items: center;
     }
 
     .tech-grid{
         grid-template-columns: 1fr;
+        align-items: center;
+        justify-content: center;
     }
 
     .lifestyle-arena .flex-3{
