@@ -64,14 +64,3 @@ document.querySelector(".cross-vid").addEventListener("click", () => {
 
     document.querySelector(".video-modal").style.display = "none";
 })
-
-
-document.querySelectorAll(".article-open").forEach((art) => {
-    art.addEventListener("click", () => {
-        document.querySelector(".article-modal").style.display = "flex";
-    })
-})
-
-document.querySelector(".article-cross").addEventListener("click", () => {
-    document.querySelector(".article-modal").style.display = "none";
-})
