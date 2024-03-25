@@ -32,9 +32,17 @@ main{
     align-items: flex-start;
 }
 
+.article-time{
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+}
+
+
 .article-time-small{
     display: none;
 }
+
 
 
 .article-btns {
@@ -52,10 +60,11 @@ main{
 .article-ls{
 display: flex;
 flex-direction: column;
-align-items: flex-start;
+align-items: flex-end;
 }
 
 .slide-btns{
+    align-self: flex-start;
     display: flex;
     gap: 1rem;
 }
@@ -63,13 +72,16 @@ align-items: flex-start;
 .btn{
     background-color: black;
     border-radius: 5px;    
-    padding: .2rem;
-    padding-top: .3rem;
+    padding: .2rem .5rem ;
+    padding-top: .5rem;
 }
 
 .article-data{
     overflow-y: scroll;
     height: 60vh;
+    text-align: justify;
+    padding-right: 3rem;
+    font-weight: 600;
 }
 
 .breadcrumb, .article-title{
@@ -106,9 +118,26 @@ align-items: flex-start;
     display: none;
 }
 
+.article-head{
+    font-size: 1.2rem;
+}
+
+.article-img img{
+    max-height: 66vh;
+}
+
 @media screen and (max-width: 800px) {
+
+    .slide-btns-big, .reaction-btns-big{
+        display: none;
+    }
+
+    .slide-btns-big{
+        display: none;
+    }
+
     .article-time-small{
-        display: block;
+        display: flex;
     }
     .article-container{
         flex-direction: column;
@@ -124,14 +153,14 @@ align-items: flex-start;
         width: 99vw;
         padding: 0;
         margin: 0;
-        height: 50vh;
+        height: 99vw;
         overflow: hidden;
         display: inline-block;
         overflow: hidden;
         position: relative;
     }
 
-    .slide-btns{
+    .slide-btns-small{
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -142,7 +171,7 @@ align-items: flex-start;
     }
 
     .slide-btns-small .btn{
-        padding: .4rem;
+        padding: .42rem .4rem;
         background-color: black;
         z-index: 1;
         display: flex;
@@ -183,6 +212,10 @@ align-items: flex-start;
 
 .reaction-btns-small{
     display: flex;
+}
+
+.article-data{
+    padding-right: 1rem;
 }
 
 
