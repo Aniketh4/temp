@@ -12,14 +12,16 @@ main{
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    position: fixed;
-    padding: 2rem;
+    position: absolute;
 }
 
 .article-head{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 2rem;
 }
 
 .grey-text{
@@ -30,6 +32,8 @@ main{
     display: flex;
     gap: 3rem;
     align-items: flex-start;
+    padding-left: 2rem;
+    padding-right: 2rem;
 }
 
 .article-time{
@@ -126,6 +130,8 @@ align-items: flex-end;
     max-height: 66vh;
 }
 
+
+
 @media screen and (max-width: 800px) {
 
     .slide-btns-big, .reaction-btns-big{
@@ -147,6 +153,7 @@ align-items: flex-end;
 
     main{
         position: unset;
+        padding: 0;
     }
     
     .article-img{
