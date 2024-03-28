@@ -931,3 +931,27 @@ main.body-main{
 
 
 }
+
+
+@media screen and (max-width :500px) {
+    html{
+        padding: 0;
+        margin: 0;
+        overflow-x: hidden;
+    }
+
+    body{
+        min-width: 100vw;
+        padding: 0;
+        margin: 0;
+
+    }
+
+    .ls-finance .row{
+        width: 80vw;
+    
+    }
+    
+
+
+}
