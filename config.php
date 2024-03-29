@@ -3,7 +3,7 @@ session_start();
 $databaseHost = 'localhost';
 $databaseUser = 'thebomb1_Aniketh'; 
 $databasePassword = '@jfTIDbEow6['; // Removed space
-$databaseName = 'thebomb1_main';
+$databaseName = 'thebomb1_Main';
 
 try {
   $conn = new PDO("mysql:host=$databaseHost;dbname=$databaseName", $databaseUser, $databasePassword);
