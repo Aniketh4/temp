@@ -78,7 +78,6 @@ include 'config.php';
       <div class="article-container">
         <div class="article-ls">
           <div class="article-img">
-            <img src="./assets/img/stylish.png" alt="Article Image" />
             <?php
                 $sql = "SELECT Lphoto, Num FROM News WHERE Type = 'Finance' AND Num IN (1)";
                 
