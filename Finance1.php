@@ -103,8 +103,26 @@
         <div class="article-rs">
           <div>
             <h1 class="article-title">
-              Launches new Fashion show in Paris, which had fabulous summer
-              collection of 2024
+            <?php
+              // Perform query
+              $sql = "SELECT Title, Num FROM News WHERE Type = 'Finance' AND Num = 1";
+
+              // Prepare and execute the statement
+              $stmt = $conn->prepare($sql);
+              $stmt->execute();
+
+              // Fetch the result (assuming only one result)
+              $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+              // Check if a row was found
+              if ($row) {
+                  // Output the Title and Num
+                  echo $row['Title'] . '<br>';
+              } else {
+                  // No matching row found
+                  echo "No records found";
+              }
+              ?>
             </h1>
             <div class="article-time grey-text article-time-small">
               <img src="./assets/img/clock.png" alt="" />

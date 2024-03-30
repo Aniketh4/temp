@@ -112,7 +112,7 @@ include 'config.php';
                     // Fetch and display each row
                     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                         // Generate URL with news number
-                        $url = 'finance-news-' . $row['Num'] . '.php';
+                        $url = 'Finance' . $row['Num'] . '.php';
                         
                         // Output the news item inside a clickable div
                         echo '<div class="dashboard-news article-open" onclick="window.location.href=\'' . $url . '\'">' . $row['Title'] . '</div>';
