@@ -79,6 +79,25 @@ include 'config.php';
         <div class="article-ls">
           <div class="article-img">
             <img src="./assets/img/stylish.png" alt="Article Image" />
+            <?php
+                $sql = "SELECT Lphoto, Num FROM News WHERE Type = 'Finance' AND Num IN (1)";
+                
+                // Prepare and execute the statement
+                $stmt = $conn->prepare($sql);
+                $stmt->execute();
+                
+                // Check if there are any results
+                if ($stmt->rowCount() > 0) {
+                    // Fetch and display each row
+                    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {                        
+                        // Output the news item inside a clickable div
+                        echo '<img src="' . $row['Lphoto'] . '" alt="Article Image" />';
+                    }
+                } else {
+                    // No matching rows found
+                    echo "No records found";
+                }
+                ?>
             <div class="slide-btns slide-btns-small">
               <div class="btn">
                 <img src="./assets/img/chevron-left.png" height="25px" alt="" />
