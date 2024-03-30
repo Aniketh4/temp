@@ -134,25 +134,24 @@ include 'config.php';
             </div>
           </div>
           <div class="article-data">
-          <?php
-                $sql = "SELECT Description, Num FROM News WHERE Type = 'Finance' AND Num IN (1)";
-                
-                // Prepare and execute the statement
-                $stmt = $conn->prepare($sql);
-                $stmt->execute();
-                
-                // Check if there are any results
-                if ($stmt->rowCount() > 0) {
-                    // Fetch and display each row
-                    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {                        
-                        // Output the news item inside a clickable div
-                        echo $row['Description'];
-                    }
-                } else {
-                    // No matching rows found
-                    echo "No records found";
+            <?php
+            $sql = "SELECT Description, Num FROM News WHERE Type = 'Finance' AND Num IN (1)";
+            // Prepare and execute the statement
+            $stmt = $conn->prepare($sql);
+            $stmt->execute();
+            
+            // Check if there are any results
+            if ($stmt->rowCount() > 0) {
+                // Fetch and display each row
+                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {                        
+                    // Output the news item inside a clickable div with line breaks
+                    echo  nl2br($row['Description']);
                 }
-                ?>
+            } else {
+                // No matching rows found
+                echo "No records found";
+            }
+            ?>
           </div>
         </div>
       </div>
