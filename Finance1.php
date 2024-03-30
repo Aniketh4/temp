@@ -102,28 +102,26 @@
         </div>
         <div class="article-rs">
           <div>
-            <h1 class="article-title">
-            <?php
-              // Perform query
-              $sql = "SELECT Title, Num FROM News WHERE Type = 'Finance' AND Num = 1";
+                <?php
+                  // Perform query
+                  $sql = "SELECT Title FROM News WHERE Type = 'Fashion' AND Num = 1";
 
-              // Prepare and execute the statement
-              $stmt = $conn->prepare($sql);
-              $stmt->execute();
+                  // Prepare and execute the statement
+                  $stmt = $conn->prepare($sql);
+                  $stmt->execute();
 
-              // Fetch the result (assuming only one result)
-              $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                  // Fetch the result (assuming only one result)
+                  $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-              // Check if a row was found
-              if ($row) {
-                  // Output the Title and Num
-                  echo $row['Title'] . '<br>';
-              } else {
-                  // No matching row found
-                  echo "No records found";
-              }
-              ?>
-            </h1>
+                  // Check if a row was found
+                  if ($row) {
+                      // Output the fetched title inside the <h1> tag
+                      echo '<h1 class="article-title">' . $row['Title'] . '</h1>';
+                  } else {
+                      // No matching row found
+                      echo '<h1 class="article-title">No records found</h1>';
+                  }
+                  ?>
             <div class="article-time grey-text article-time-small">
               <img src="./assets/img/clock.png" alt="" />
               posted 2 min ago
