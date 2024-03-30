@@ -104,7 +104,7 @@
           <div>
                 <?php
                   // Perform query
-                  $sql = "SELECT Title FROM News WHERE Type = 'Fashion' AND Num = 1";
+                  $sql = "SELECT Title FROM News WHERE Type = 'Finance' AND Num = 1";
 
                   // Prepare and execute the statement
                   $stmt = $conn->prepare($sql);
