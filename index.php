@@ -100,75 +100,29 @@ include 'config.php';
             <h3 class="title-2">Finance</h3>
             <div class="trending-btn">Trending</div>
             <div class="dashboard-card-description">
-              <?php              
-              // Perform query
-              $sql = "SELECT Title FROM News WHERE Num = 1 AND Type = 'Finance'";
-              $result = mysqli_query($conn, $sql);
-              
-              // Check if query was successful
-              if ($result) {
-                  // Fetch row
-                  $row = mysqli_fetch_assoc($result);
-                  
-                  // Check if a row was found
-                  if ($row) {
-                      // Output the text
-                      echo '<div class="dashboard-news article-open">' . $row['Title'] . '</div>';
-                  } else {
-                      // No matching rows found
-                      echo "No records found";
-                  }
-              } else {
-                  // Query failed
-                  echo "Please refresh page" . mysqli_error($conn);
-              }
-              
-              // Close connection
-              mysqli_close($conn);
-              ?>
-              
-              <hr />
-              <?php              
-              // Perform query
-              $sql = "SELECT Title FROM News WHERE Num = 2 AND Type = 'Finance'";
-              $result = mysqli_query($conn, $sql);
-              
-              // Check if query was successful
-              if ($result) {
-                  // Fetch row
-                  $row = mysqli_fetch_assoc($result);
-                  
-                  // Check if a row was found
-                  if ($row) {
-                      // Output the text
-                      echo '<div class="dashboard-news article-open">' . $row['Title'] . '</div>';
-                  } else {
-                      // No matching rows found
-                      echo "No records found";
-                  }
-              } else {
-                  // Query failed
-                  echo "Please refresh page" . mysqli_error($conn);
-              }
-              
-              // Close connection
-              mysqli_close($conn);
-              ?>
-              <hr />
-              <div class="dashboard-news article-open">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Earum,
-                voluptatibus!
-              </div>
-              <hr />
-              <div class="dashboard-news article-open">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Earum,
-                voluptatibus!
-              </div>
-              <hr />
-              <div class="dashboard-news article-open">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Earum,
-                voluptatibus!
-              </div>
+                <?php
+                $sql = "SELECT Title, Num FROM News WHERE Type = 'Finance' AND Num IN (1, 2, 3, 4, 5)";
+                
+                // Prepare and execute the statement
+                $stmt = $conn->prepare($sql);
+                $stmt->execute();
+                
+                // Check if there are any results
+                if ($stmt->rowCount() > 0) {
+                    // Fetch and display each row
+                    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                        // Generate URL with news number
+                        $url = 'finance-news-' . $row['Num'] . '.php';
+                        
+                        // Output the news item inside a clickable div
+                        echo '<div class="dashboard-news article-open" onclick="window.location.href=\'' . $url . '\'">' . $row['Title'] . '</div>';
+                        echo '<hr />';
+                    }
+                } else {
+                    // No matching rows found
+                    echo "No records found";
+                }
+                ?>
             </div>
           </div>
 
