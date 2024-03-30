@@ -103,32 +103,24 @@
         <div class="article-rs">
           <div>
             <h1 class="article-title">
-            <?php
-            $sql = "SELECT Title FROM Test WHERE Num = :num AND Type = :type";
-            $stmt = $pdo->prepare($sql);
-
-            // Bind parameters
-            $stmt->bindParam(':num', $num, PDO::PARAM_INT);
-            $stmt->bindParam(':type', $type, PDO::PARAM_STR);
-
-            // Set parameters
-            $num = 1;
-            $type = 'Finance';
-
-            // Execute query
-            $stmt->execute();
-
-            // Fetch row
-            $row = $stmt->fetch(PDO::FETCH_ASSOC);
-
-            // Check if a row was found
-            if ($row) {
-                // Output the text
-                echo $row['Title'] ;
-            } else {
-                // No matching rows found
-                echo "No records found";
-            }
+              <?php
+              // Prepare SQL statement
+              $stmt = $pdo->prepare("SELECT Title, Num FROM News WHERE Type = 'Finance' AND Num = 1");
+              
+              // Execute query
+              $stmt->execute();
+              
+              // Check if any rows were found
+              if ($stmt->rowCount() > 0) {
+                  // Fetch row
+                  $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                  
+                  // Output the text
+                  echo $row['Title'] ;
+              } else {
+                  // No matching rows found
+                  echo "No records found";
+              }
             ?>
             </h1>
             <div class="article-time grey-text article-time-small">
