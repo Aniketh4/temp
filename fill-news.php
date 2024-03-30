@@ -23,24 +23,50 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sphoto = test_input($_POST["sphoto"]);
     $lphoto = test_input($_POST["lphoto"]);
 
-    // Prepare and bind the insert statement
-    $stmt = $conn->prepare("INSERT INTO News (Type, Title, Num, Description, SPhoto, LPhoto) VALUES (?, ?, ?, ?, ?, ?)");
-    $stmt->bindParam(1, $type);
-    $stmt->bindParam(2, $title);
-    $stmt->bindParam(3, $num);
-    $stmt->bindParam(4, $description);
-    $stmt->bindParam(5, $sphoto);
-    $stmt->bindParam(6, $lphoto);
+    // Check if data already exists for given Type and Num
+    $existing_data = $conn->prepare("SELECT COUNT(*) AS count FROM News WHERE Type = ? AND Num = ?");
+    $existing_data->bindParam(1, $type);
+    $existing_data->bindParam(2, $num);
+    $existing_data->execute();
+    $row = $existing_data->fetch(PDO::FETCH_ASSOC);
+    $count = $row['count'];
 
-    // Execute the statement
-    try {
-        $stmt->execute();
-        echo "News inserted successfully!";
-    } catch(PDOException $error) {
-        echo "Error: " . $error->getMessage();
+    if ($count > 0) {
+        // Data exists, perform update
+        $update_stmt = $conn->prepare("UPDATE News SET Title = ?, Description = ?, SPhoto = ?, LPhoto = ? WHERE Type = ? AND Num = ?");
+        $update_stmt->bindParam(1, $title);
+        $update_stmt->bindParam(2, $description);
+        $update_stmt->bindParam(3, $sphoto);
+        $update_stmt->bindParam(4, $lphoto);
+        $update_stmt->bindParam(5, $type);
+        $update_stmt->bindParam(6, $num);
+
+        try {
+            $update_stmt->execute();
+            echo "News updated successfully!";
+        } catch(PDOException $error) {
+            echo "Error updating news: " . $error->getMessage();
+        }
+    } else {
+        // Data does not exist, perform insert
+        $insert_stmt = $conn->prepare("INSERT INTO News (Type, Title, Num, Description, SPhoto, LPhoto) VALUES (?, ?, ?, ?, ?, ?)");
+        $insert_stmt->bindParam(1, $type);
+        $insert_stmt->bindParam(2, $title);
+        $insert_stmt->bindParam(3, $num);
+        $insert_stmt->bindParam(4, $description);
+        $insert_stmt->bindParam(5, $sphoto);
+        $insert_stmt->bindParam(6, $lphoto);
+
+        try {
+            $insert_stmt->execute();
+            echo "News inserted successfully!";
+        } catch(PDOException $error) {
+            echo "Error inserting news: " . $error->getMessage();
+        }
     }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
