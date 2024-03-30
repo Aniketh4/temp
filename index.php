@@ -56,7 +56,7 @@ include 'config.php';
         <div class="side-main">
           <ul class="link-ul side-ls">
             <li><a href="">Finance</a></li>
-            <li><a href="">technology</a></li>
+            <li><a href="">Technology</a></li>
             <li><a href="">Lifestyle</a></li>
             <li><a href="">Markets</a></li>
             <li><a href="">Bombay</a></li>
@@ -112,7 +112,7 @@ include 'config.php';
                     // Fetch and display each row
                     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                         // Generate URL with news number
-                        $url = 'Finance' . $row['Num'] . '.php';
+                        $url = 'Article.php?type=finance&num=' . $row['Num'];
                         
                         // Output the news item inside a clickable div
                         echo '<div class="dashboard-news article-open" onclick="window.location.href=\'' . $url . '\'">' . $row['Title'] . '</div>';
