@@ -103,25 +103,28 @@
         <div class="article-rs">
           <div>
             <h1 class="article-title">
-              <?php
-              // Prepare SQL statement
-              $stmt = $pdo->prepare("SELECT Title, Num FROM News WHERE Type = 'Finance' AND Num = 1");
-              
-              // Execute query
-              $stmt->execute();
-              
-              // Check if any rows were found
-              if ($stmt->rowCount() > 0) {
-                  // Fetch row
-                  $row = $stmt->fetch(PDO::FETCH_ASSOC);
-                  
-                  // Output the text
-                  echo $row['Title'] ;
-              } else {
-                  // No matching rows found
-                  echo "No records found";
-              }
-            ?>
+            <?php
+                $sql = "SELECT Title, Num FROM News WHERE Type = 'Finance' AND Num IN (1)";
+                
+                // Prepare and execute the statement
+                $stmt = $conn->prepare($sql);
+                $stmt->execute();
+                
+                // Check if there are any results
+                if ($stmt->rowCount() > 0) {
+                    // Fetch and display each row
+                    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                        // Generate URL with news number
+                        $url = 'Finance' . $row['Num'] . '.php';
+                        
+                        // Output the news item inside a clickable div
+                        echo $row['Title'];
+                    }
+                } else {
+                    // No matching rows found
+                    echo "No records found";
+                }
+                ?>
             </h1>
             <div class="article-time grey-text article-time-small">
               <img src="./assets/img/clock.png" alt="" />
