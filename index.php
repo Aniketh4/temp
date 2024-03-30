@@ -102,7 +102,7 @@ include 'config.php';
             <div class="dashboard-card-description">
               <?php              
               // Perform query
-              $sql = "SELECT Title FROM Test WHERE Num = 1 AND Type = 'Finance'";
+              $sql = "SELECT Title FROM News WHERE Num = 1 AND Type = 'Finance'";
               $result = mysqli_query($conn, $sql);
               
               // Check if query was successful
@@ -130,7 +130,7 @@ include 'config.php';
               <hr />
               <?php              
               // Perform query
-              $sql = "SELECT Title FROM Test WHERE Num = 2 AND Type = 'Finance'";
+              $sql = "SELECT Title FROM News WHERE Num = 2 AND Type = 'Finance'";
               $result = mysqli_query($conn, $sql);
               
               // Check if query was successful
