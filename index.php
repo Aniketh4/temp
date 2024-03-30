@@ -1,3 +1,8 @@
+<?php
+// Include your config.php file
+include 'config.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -32,10 +37,10 @@
       <h2 class="mob-logo">TBF</h2>
       <ul class="link-ul center-nav">
         <li><a href="">Finance</a></li>
-        <li><a href="">Finance</a></li>
-        <li><a href="">Finance</a></li>
-        <li><a href="">Finance</a></li>
-        <li><a href="">Finance</a></li>
+        <li><a href="">Technology</a></li>
+        <li><a href="">Lifestyle</a></li>
+        <li><a href="">Markets</a></li>
+        <li><a href="">Bombay</a></li>
       </ul>
       <ul class="link-ul side-nav">
         <li><a href="" class="login-link">Login</a></li>
@@ -50,11 +55,11 @@
         <div class="cross-btn">X</div>
         <div class="side-main">
           <ul class="link-ul side-ls">
-            <li><a href="">Home</a></li>
-            <li><a href="">Home</a></li>
-            <li><a href="">Home</a></li>
-            <li><a href="">Home</a></li>
-            <li><a href="">Home</a></li>
+            <li><a href="">Finance</a></li>
+            <li><a href="">technology</a></li>
+            <li><a href="">Lifestyle</a></li>
+            <li><a href="">Markets</a></li>
+            <li><a href="">Bombay</a></li>
           </ul>
         </div>
       </div>
@@ -95,15 +100,60 @@
             <h3 class="title-2">Finance</h3>
             <div class="trending-btn">Trending</div>
             <div class="dashboard-card-description">
-              <div class="dashboard-news article-open">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Earum,
-                voluptatibus!
-              </div>
+              <?php              
+              // Perform query
+              $sql = "SELECT Title FROM Test WHERE Num = 1 AND Type = 'Finance'";
+              $result = mysqli_query($conn, $sql);
+              
+              // Check if query was successful
+              if ($result) {
+                  // Fetch row
+                  $row = mysqli_fetch_assoc($result);
+                  
+                  // Check if a row was found
+                  if ($row) {
+                      // Output the text
+                      echo '<div class="dashboard-news article-open">' . $row['Title'] . '</div>';
+                  } else {
+                      // No matching rows found
+                      echo "No records found";
+                  }
+              } else {
+                  // Query failed
+                  echo "Please refresh page" . mysqli_error($conn);
+              }
+              
+              // Close connection
+              mysqli_close($conn);
+              ?>
+              
               <hr />
-              <div class="dashboard-news article-open">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Earum,
-                voluptatibus!
-              </div>
+              <?php              
+              // Perform query
+              $sql = "SELECT Title FROM Test WHERE Num = 2 AND Type = 'Finance'";
+              $result = mysqli_query($conn, $sql);
+              
+              // Check if query was successful
+              if ($result) {
+                  // Fetch row
+                  $row = mysqli_fetch_assoc($result);
+                  
+                  // Check if a row was found
+                  if ($row) {
+                      // Output the text
+                      echo '<div class="dashboard-news article-open">' . $row['Title'] . '</div>';
+                  } else {
+                      // No matching rows found
+                      echo "No records found";
+                  }
+              } else {
+                  // Query failed
+                  echo "Please refresh page" . mysqli_error($conn);
+              }
+              
+              // Close connection
+              mysqli_close($conn);
+              ?>
               <hr />
               <div class="dashboard-news article-open">
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Earum,
