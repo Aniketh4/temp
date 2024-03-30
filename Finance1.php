@@ -102,26 +102,35 @@
         </div>
         <div class="article-rs">
           <div>
-                <?php
-                  // Perform query
-                  $sql = "SELECT Title FROM News WHERE Type = 'Finance' AND Num = 1";
+            <h1 class="article-title">
+            <?php
+            $sql = "SELECT Title FROM Test WHERE Num = :num AND Type = :type";
+            $stmt = $pdo->prepare($sql);
 
-                  // Prepare and execute the statement
-                  $stmt = $conn->prepare($sql);
-                  $stmt->execute();
+            // Bind parameters
+            $stmt->bindParam(':num', $num, PDO::PARAM_INT);
+            $stmt->bindParam(':type', $type, PDO::PARAM_STR);
 
-                  // Fetch the result (assuming only one result)
-                  $row = $stmt->fetch(PDO::FETCH_ASSOC);
+            // Set parameters
+            $num = 1;
+            $type = 'Finance';
 
-                  // Check if a row was found
-                  if ($row) {
-                      // Output the fetched title inside the <h1> tag
-                      echo '<h1 class="article-title">' . $row['Title'] . '</h1>';
-                  } else {
-                      // No matching row found
-                      echo '<h1 class="article-title">No records found</h1>';
-                  }
-                  ?>
+            // Execute query
+            $stmt->execute();
+
+            // Fetch row
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            // Check if a row was found
+            if ($row) {
+                // Output the text
+                echo $row['Title'] ;
+            } else {
+                // No matching rows found
+                echo "No records found";
+            }
+            ?>
+            </h1>
             <div class="article-time grey-text article-time-small">
               <img src="./assets/img/clock.png" alt="" />
               posted 2 min ago
