@@ -1,6 +1,6 @@
 <?php
 $databaseHost = 'tbf-db.chwiu8qak8lg.eu-north-1.rds.amazonaws.com';
-$databasePort = '3306'; // Change this to the port your MySQL server is using
+$databasePort = 3306; // Change this to the port your MySQL server is using
 $databaseUser = 'admin';
 $databasePassword = 'Aniketh2204';
 $databaseName = 'test';

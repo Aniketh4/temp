@@ -100,29 +100,49 @@ include 'config.php';
             <h3 class="title-2">Finance</h3>
             <div class="trending-btn">Trending</div>
             <div class="dashboard-card-description">
-                <?php
-                $sql = "SELECT Title, Num FROM news WHERE Type = 'Finance' AND Num IN (1, 2, 3, 4, 5)";
-                
-                // Prepare and execute the statement
-                $stmt = $conn->prepare($sql);
-                $stmt->execute();
-                
-                // Check if there are any results
-                if ($stmt->rowCount() > 0) {
-                    // Fetch and display each row
-                    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                        // Generate URL with news number
-                        $url = 'Article.php?type=Finance&num=' . $row['Num'];
-                        
-                        // Output the news item inside a clickable div
-                        echo '<div class="dashboard-news article-open" onclick="window.location.href=\'' . $url . '\'">' . $row['Title'] . '</div>';
-                        echo '<hr />';
-                    }
-                } else {
-                    // No matching rows found
-                    echo "No records found";
-                }
-                ?>
+            <?php
+              $databaseHost = 'tbf-db.chwiu8qak8lg.eu-north-1.rds.amazonaws.com';
+              $databasePort = 3306; // Change this to the port your MySQL server is using
+              $databaseUser = 'admin';
+              $databasePassword = 'Aniketh2204';
+              $databaseName = 'test';
+
+              try {
+                  // Establish database connection
+                  $conn = new PDO("mysql:host=$databaseHost;port=$databasePort;dbname=$databaseName", $databaseUser, $databasePassword);
+                  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                  
+                  // Debugging: Print a message if connection is successful
+                  echo "Connected to the database successfully<br>";
+                  
+                  // Define SQL query
+                  $sql = "SELECT Title, Num FROM news WHERE Type = 'Finance' AND Num IN (1, 2, 3, 4, 5)";
+                  
+                  // Prepare and execute the statement
+                  $stmt = $conn->prepare($sql);
+                  $stmt->execute();
+                  
+                  // Check if there are any results
+                  if ($stmt->rowCount() > 0) {
+                      // Fetch and display each row
+                      while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                          // Generate URL with news number
+                          $url = 'Article.php?type=Finance&num=' . $row['Num'];
+                          
+                          // Output the news item inside a clickable div
+                          echo '<div class="dashboard-news article-open" onclick="window.location.href=\'' . $url . '\'">' . $row['Title'] . '</div>';
+                          echo '<hr />';
+                      }
+                  } else {
+                      // No matching rows found
+                      echo "No records found";
+                  }
+              } catch(PDOException $error) {
+                  // Error handling: Print error message if connection fails
+                  echo "Connection failed: " . $error->getMessage();
+              }
+              ?>
+
             </div>
           </div>
 
