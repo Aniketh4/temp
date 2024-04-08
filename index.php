@@ -101,7 +101,7 @@ include 'config.php';
             <div class="trending-btn">Trending</div>
             <div class="dashboard-card-description">
                 <?php
-                $sql = "SELECT Title, Num FROM News WHERE Type = 'Finance' AND Num IN (1, 2, 3, 4, 5)";
+                $sql = "SELECT Title, Num FROM news WHERE Type = 'Finance' AND Num IN (1, 2, 3, 4, 5)";
                 
                 // Prepare and execute the statement
                 $stmt = $conn->prepare($sql);

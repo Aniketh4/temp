@@ -79,7 +79,7 @@ include 'config.php';
         <div class="article-ls">
           <div class="article-img">
             <?php
-                $sql = "SELECT Lphoto, Num FROM News WHERE Type = '{$_GET['type']}' AND Num IN ({$_GET['num']})";        
+                $sql = "SELECT Lphoto, Num FROM news WHERE Type = '{$_GET['type']}' AND Num IN ({$_GET['num']})";        
                 // Prepare and execute the statement
                 $stmt = $conn->prepare($sql);
                 $stmt->execute();
@@ -126,7 +126,7 @@ include 'config.php';
           <div>
             <h1 class="article-title">
             <?php
-                $sql = "SELECT Title, Num FROM News WHERE Type = '{$_GET['type']}' AND Num IN ({$_GET['num']})";     
+                $sql = "SELECT Title, Num FROM news WHERE Type = '{$_GET['type']}' AND Num IN ({$_GET['num']})";     
                 
                 // Prepare and execute the statement
                 $stmt = $conn->prepare($sql);
@@ -152,7 +152,7 @@ include 'config.php';
           </div>
           <div class="article-data">
             <?php
-            $sql = "SELECT Description, Num FROM News WHERE Type = '{$_GET['type']}' AND Num IN ({$_GET['num']})";     
+            $sql = "SELECT Description, Num FROM news WHERE Type = '{$_GET['type']}' AND Num IN ({$_GET['num']})";     
             // Prepare and execute the statement
             $stmt = $conn->prepare($sql);
             $stmt->execute();
