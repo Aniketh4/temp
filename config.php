@@ -1,9 +1,9 @@
 <?php
 session_start();
-$databaseHost = 'localhost';
-$databaseUser = 'thebomb1_Aniketh'; 
-$databasePassword = '@jfTIDbEow6['; // Removed space
-$databaseName = 'thebomb1_Main';
+$databaseHost = 'tbf-db.chwiu8qak8lg.eu-north-1.rds.amazonaws.com';
+$databaseUser = 'admin'; 
+$databasePassword = 'Aniketh2204'; // Removed space
+$databaseName = 'test';
 
 try {
   $conn = new PDO("mysql:host=$databaseHost;dbname=$databaseName", $databaseUser, $databasePassword);
