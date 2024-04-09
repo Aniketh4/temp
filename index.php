@@ -3,6 +3,17 @@
 include 'config.php';
 ?>
 
+<?php
+// Establish database connection
+try {
+    $conn = new PDO("mysql:host=$databaseHost;port=$databasePort;dbname=$databaseName", $databaseUser, $databasePassword);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch(PDOException $error) {
+    // Error handling: Print error message if connection fails
+    die("Connection failed: " . $error->getMessage());
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -101,20 +112,7 @@ include 'config.php';
             <div class="trending-btn">Trending</div>
             <div class="dashboard-card-description">
             <?php
-              $databaseHost = 'tbf-db.chwiu8qak8lg.eu-north-1.rds.amazonaws.com';
-              $databasePort = 3306; // Change this to the port your MySQL server is using
-              $databaseUser = 'admin';
-              $databasePassword = 'Aniketh2204';
-              $databaseName = 'test';
-
-              try {
-                  // Establish database connection
-                  $conn = new PDO("mysql:host=$databaseHost;port=$databasePort;dbname=$databaseName", $databaseUser, $databasePassword);
-                  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                  
-                  // Debugging: Print a message if connection is successful
-                  echo "Connected to the database successfully<br>";
-                  
+              try {                  
                   // Define SQL query
                   $sql = "SELECT Title, Num FROM news WHERE Type = 'Finance' AND Num IN (1, 2, 3, 4, 5)";
                   
@@ -151,25 +149,98 @@ include 'config.php';
               <div class="white-card article-open">
                 <div class="card-title">Lifestyle</div>
                 <div class="trending-btn">Trending</div>
-                <div class="card-desc">
-                  Lorem ipsum dolor sit amet consectetur
-                </div>
+                  <?php
+                  try {
+                      // Define SQL query
+                      $sql = "SELECT Title, Num FROM news WHERE Type = 'Lifestyle' AND Num = 1"; // Changed IN (1) to = 1
+                      
+                      // Prepare and execute the statement
+                      $stmt = $conn->prepare($sql);
+                      $stmt->execute();
+                      
+                      // Check if there are any results
+                      if ($stmt->rowCount() > 0) {
+                          // Fetch the first row
+                          $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                          
+                          // Generate URL with news number
+                          $url = 'Article.php?type=Lifestyle&num=' . $row['Num'];
+                          
+                          // Output the news item inside a clickable div
+                          echo '<div class="card-desc" onclick="window.location.href=\'' . $url . '\'">' . $row['Title'] . '</div>'; // Added </div> at the end
+                      } else {
+                          // No matching rows found
+                          echo "No records found";
+                      }
+                  } catch(PDOException $error) {
+                      // Error handling: Print error message if connection fails
+                      echo "Connection failed: " . $error->getMessage();
+                  }
+                  ?>
               </div>
 
               <div class="white-card article-open">
                 <div class="card-title">Lifestyle</div>
                 <div class="trending-btn">Trending</div>
-                <div class="card-desc">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </div>
+                <?php
+                  try {
+                      $sql = "SELECT Title, Num FROM news WHERE Type = 'Lifestyle' AND Num = 2"; // Changed IN (1) to = 1
+                      
+                      // Prepare and execute the statement
+                      $stmt = $conn->prepare($sql);
+                      $stmt->execute();
+                      
+                      // Check if there are any results
+                      if ($stmt->rowCount() > 0) {
+                          // Fetch the first row
+                          $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                          
+                          // Generate URL with news number
+                          $url = 'Article.php?type=Lifestyle&num=' . $row['Num'];
+                          
+                          // Output the news item inside a clickable div
+                          echo '<div class="card-desc" onclick="window.location.href=\'' . $url . '\'">' . $row['Title'] . '</div>'; // Added </div> at the end
+                      } else {
+                          // No matching rows found
+                          echo "No records found";
+                      }
+                  } catch(PDOException $error) {
+                      // Error handling: Print error message if connection fails
+                      echo "Connection failed: " . $error->getMessage();
+                  }
+                  ?>
               </div>
 
               <div class="white-card article-open">
                 <div class="card-title">Lifestyle</div>
                 <div class="trending-btn">Trending</div>
-                <div class="card-desc">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </div>
+                <?php
+                  try {
+                      $sql = "SELECT Title, Num FROM news WHERE Type = 'Lifestyle' AND Num = 3"; // Changed IN (1) to = 1
+                      
+                      // Prepare and execute the statement
+                      $stmt = $conn->prepare($sql);
+                      $stmt->execute();
+                      
+                      // Check if there are any results
+                      if ($stmt->rowCount() > 0) {
+                          // Fetch the first row
+                          $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                          
+                          // Generate URL with news number
+                          $url = 'Article.php?type=Lifestyle&num=' . $row['Num'];
+                          
+                          // Output the news item inside a clickable div
+                          echo '<div class="card-desc" onclick="window.location.href=\'' . $url . '\'">' . $row['Title'] . '</div>'; // Added </div> at the end
+                      } else {
+                          // No matching rows found
+                          echo "No records found";
+                      }
+                  } catch(PDOException $error) {
+                      // Error handling: Print error message if connection fails
+                      echo "Connection failed: " . $error->getMessage();
+                  }
+                  ?>
               </div>
             </div>
           </div>
@@ -178,30 +249,35 @@ include 'config.php';
             <h3 class="title-2">Technology</h3>
             <div class="trending-btn">Trending</div>
             <div class="dashboard-card-description">
-              <div class="dashboard-news article-open">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Earum,
-                voluptatibus!
-              </div>
-              <hr />
-              <div class="dashboard-news article-open">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Earum,
-                voluptatibus!
-              </div>
-              <hr />
-              <div class="dashboard-news article-open">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Earum,
-                voluptatibus!
-              </div>
-              <hr />
-              <div class="dashboard-news article-open">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Earum,
-                voluptatibus!
-              </div>
-              <hr />
-              <div class="dashboard-news article-open">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Earum,
-                voluptatibus!
-              </div>
+            <?php
+              try {                  
+                  // Define SQL query
+                  $sql = "SELECT Title, Num FROM news WHERE Type = 'Tech' AND Num IN (1, 2, 3, 4, 5, 6)";
+                  
+                  // Prepare and execute the statement
+                  $stmt = $conn->prepare($sql);
+                  $stmt->execute();
+                  
+                  // Check if there are any results
+                  if ($stmt->rowCount() > 0) {
+                      // Fetch and display each row
+                      while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                          // Generate URL with news number
+                          $url = 'Article.php?type=Tech&num=' . $row['Num'];
+                          
+                          // Output the news item inside a clickable div
+                          echo '<div class="dashboard-news article-open" onclick="window.location.href=\'' . $url . '\'">' . $row['Title'] . '</div>';
+                          echo '<hr />';
+                      }
+                  } else {
+                      // No matching rows found
+                      echo "No records found";
+                  }
+              } catch(PDOException $error) {
+                  // Error handling: Print error message if connection fails
+                  echo "Connection failed: " . $error->getMessage();
+              }
+              ?>
             </div>
           </div>
         </div>
@@ -217,36 +293,181 @@ include 'config.php';
               <div class="row article-open">
                 <div class="finance-ls">
                   <div class="row-title">News 01</div>
-                  <div class="row-desc">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  </div>
+                  <?php
+                  try {
+                      // Define SQL query
+                      $sql = "SELECT Title, Num FROM news WHERE Type = 'Finance' AND Num = 6"; // Changed IN (1) to = 1
+                      
+                      // Prepare and execute the statement
+                      $stmt = $conn->prepare($sql);
+                      $stmt->execute();
+                      
+                      // Check if there are any results
+                      if ($stmt->rowCount() > 0) {
+                          // Fetch the first row
+                          $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                          
+                          // Generate URL with news number
+                          $url = 'Article.php?type=Finance&num=' . $row['Num'];
+                          
+                          // Output the news item inside a clickable div
+                          echo '<div class="row-desc" onclick="window.location.href=\'' . $url . '\'">' . $row['Title'] . '</div>'; // Added </div> at the end
+                      } else {
+                          // No matching rows found
+                          echo "No records found";
+                      }
+                  } catch(PDOException $error) {
+                      // Error handling: Print error message if connection fails
+                      echo "Connection failed: " . $error->getMessage();
+                  }
+                  ?>
                 </div>
                 <div class="rs">
-                  <img src="./assets/img/finance.png" height="100px" alt="" />
+                <?php
+                try {
+                    $sql = "SELECT Lphoto FROM news WHERE Type = 'Finance' AND Num = 6"; // Changed IN (1) to = 1
+                    
+                    // Prepare and execute the statement
+                    $stmt = $conn->prepare($sql);
+                    $stmt->execute();
+                    
+                    // Check if there are any results
+                    if ($stmt->rowCount() > 0) {
+                        // Fetch the first row
+                        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                        
+                        // Output the news item inside a clickable div
+                        echo '<img src="' . $row['Lphoto'] . '" alt="" style="height: 100px;" />';
+                    } else {
+                        // No matching rows found
+                        echo "No records found";
+                    }
+                } catch(PDOException $error) {
+                    // Error handling: Print error message if connection fails
+                    echo "Connection failed: " . $error->getMessage();
+                }
+                ?>
                 </div>
               </div>
               <hr />
               <div class="row article-open">
                 <div class="finance-ls">
-                  <div class="row-title">News 01</div>
-                  <div class="row-desc">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  </div>
+                  <div class="row-title">News 02</div>
+                  <?php
+                  try {
+                      // Define SQL query
+                      $sql = "SELECT Title, Num FROM news WHERE Type = 'Finance' AND Num = 7"; // Changed IN (1) to = 1
+                      
+                      // Prepare and execute the statement
+                      $stmt = $conn->prepare($sql);
+                      $stmt->execute();
+                      
+                      // Check if there are any results
+                      if ($stmt->rowCount() > 0) {
+                          // Fetch the first row
+                          $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                          
+                          // Generate URL with news number
+                          $url = 'Article.php?type=Finance&num=' . $row['Num'];
+                          
+                          // Output the news item inside a clickable div
+                          echo '<div class="row-desc" onclick="window.location.href=\'' . $url . '\'">' . $row['Title'] . '</div>'; // Added </div> at the end
+                      } else {
+                          // No matching rows found
+                          echo "No records found";
+                      }
+                  } catch(PDOException $error) {
+                      // Error handling: Print error message if connection fails
+                      echo "Connection failed: " . $error->getMessage();
+                  }
+                  ?>
                 </div>
                 <div class="rs">
-                  <img src="./assets/img/finance.png" height="100px" alt="" />
+                <?php
+                try {
+                    $sql = "SELECT Lphoto FROM news WHERE Type = 'Finance' AND Num = 7"; // Changed IN (1) to = 1
+                    
+                    // Prepare and execute the statement
+                    $stmt = $conn->prepare($sql);
+                    $stmt->execute();
+                    
+                    // Check if there are any results
+                    if ($stmt->rowCount() > 0) {
+                        // Fetch the first row
+                        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                        
+                        // Output the news item inside a clickable div
+                        echo '<img src="' . $row['Lphoto'] . '" alt="" style="height: 100px;" />';
+                    } else {
+                        // No matching rows found
+                        echo "No records found";
+                    }
+                } catch(PDOException $error) {
+                    // Error handling: Print error message if connection fails
+                    echo "Connection failed: " . $error->getMessage();
+                }
+                ?>
                 </div>
               </div>
               <hr />
               <div class="row article-open">
                 <div class="finance-ls">
-                  <div class="row-title">News 01</div>
-                  <div class="row-desc">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  </div>
+                  <div class="row-title">News 03</div>
+                  <?php
+                  try {
+                      // Define SQL query
+                      $sql = "SELECT Title, Num FROM news WHERE Type = 'Finance' AND Num = 8"; // Changed IN (1) to = 1
+                      
+                      // Prepare and execute the statement
+                      $stmt = $conn->prepare($sql);
+                      $stmt->execute();
+                      
+                      // Check if there are any results
+                      if ($stmt->rowCount() > 0) {
+                          // Fetch the first row
+                          $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                          
+                          // Generate URL with news number
+                          $url = 'Article.php?type=Finance&num=' . $row['Num'];
+                          
+                          // Output the news item inside a clickable div
+                          echo '<div class="row-desc" onclick="window.location.href=\'' . $url . '\'">' . $row['Title'] . '</div>'; // Added </div> at the end
+                      } else {
+                          // No matching rows found
+                          echo "No records found";
+                      }
+                  } catch(PDOException $error) {
+                      // Error handling: Print error message if connection fails
+                      echo "Connection failed: " . $error->getMessage();
+                  }
+                  ?>
                 </div>
                 <div class="rs">
-                  <img src="./assets/img/finance.png" height="100px" alt="" />
+                <?php
+                try {
+                    $sql = "SELECT Lphoto FROM news WHERE Type = 'Finance' AND Num = 8"; // Changed IN (1) to = 1
+                    
+                    // Prepare and execute the statement
+                    $stmt = $conn->prepare($sql);
+                    $stmt->execute();
+                    
+                    // Check if there are any results
+                    if ($stmt->rowCount() > 0) {
+                        // Fetch the first row
+                        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                        
+                        // Output the news item inside a clickable div
+                        echo '<img src="' . $row['Lphoto'] . '" alt="" style="height: 100px;" />';
+
+                    } else {
+                        // No matching rows found
+                        echo "No records found";
+                    }
+                } catch(PDOException $error) {
+                    // Error handling: Print error message if connection fails
+                    echo "Connection failed: " . $error->getMessage();
+                }
+                ?>
                 </div>
               </div>
             </div>
@@ -254,10 +475,34 @@ include 'config.php';
               <div class="finance-news article-open">
                 <div class="news-header">
                   <div class="index">01</div>
-                  <div class="news-title">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Delectus, doloremque.
-                  </div>
+                  <?php
+                  try {
+                      // Define SQL query
+                      $sql = "SELECT Title, Num FROM news WHERE Type = 'Finance' AND Num = 9"; // Changed IN (1) to = 1
+                      
+                      // Prepare and execute the statement
+                      $stmt = $conn->prepare($sql);
+                      $stmt->execute();
+                      
+                      // Check if there are any results
+                      if ($stmt->rowCount() > 0) {
+                          // Fetch the first row
+                          $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                          
+                          // Generate URL with news number
+                          $url = 'Article.php?type=Finance&num=' . $row['Num'];
+                          
+                          // Output the news item inside a clickable div
+                          echo '<div class="news-title" onclick="window.location.href=\'' . $url . '\'">' . $row['Title'] . '</div>'; // Added </div> at the end
+                      } else {
+                          // No matching rows found
+                          echo "No records found";
+                      }
+                  } catch(PDOException $error) {
+                      // Error handling: Print error message if connection fails
+                      echo "Connection failed: " . $error->getMessage();
+                  }
+                  ?>
                 </div>
                 <div class="news-sub-header">
                   <div class="time">8:00</div>
@@ -268,11 +513,35 @@ include 'config.php';
 
               <div class="finance-news article-open">
                 <div class="news-header">
-                  <div class="index">01</div>
-                  <div class="news-title">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Delectus, doloremque.
-                  </div>
+                  <div class="index">02</div>
+                  <?php
+                  try {
+                      // Define SQL query
+                      $sql = "SELECT Title, Num FROM news WHERE Type = 'Finance' AND Num = 10"; // Changed IN (1) to = 1
+                      
+                      // Prepare and execute the statement
+                      $stmt = $conn->prepare($sql);
+                      $stmt->execute();
+                      
+                      // Check if there are any results
+                      if ($stmt->rowCount() > 0) {
+                          // Fetch the first row
+                          $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                          
+                          // Generate URL with news number
+                          $url = 'Article.php?type=Finance&num=' . $row['Num'];
+                          
+                          // Output the news item inside a clickable div
+                          echo '<div class="news-title" onclick="window.location.href=\'' . $url . '\'">' . $row['Title'] . '</div>'; // Added </div> at the end
+                      } else {
+                          // No matching rows found
+                          echo "No records found";
+                      }
+                  } catch(PDOException $error) {
+                      // Error handling: Print error message if connection fails
+                      echo "Connection failed: " . $error->getMessage();
+                  }
+                  ?>
                 </div>
                 <div class="news-sub-header">
                   <div class="time">8:00</div>
@@ -283,11 +552,35 @@ include 'config.php';
 
               <div class="finance-news article-open">
                 <div class="news-header">
-                  <div class="index">01</div>
-                  <div class="news-title">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Delectus, doloremque.
-                  </div>
+                  <div class="index">03</div>
+                  <?php
+                  try {
+                      // Define SQL query
+                      $sql = "SELECT Title, Num FROM news WHERE Type = 'Finance' AND Num = 11"; // Changed IN (1) to = 1
+                      
+                      // Prepare and execute the statement
+                      $stmt = $conn->prepare($sql);
+                      $stmt->execute();
+                      
+                      // Check if there are any results
+                      if ($stmt->rowCount() > 0) {
+                          // Fetch the first row
+                          $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                          
+                          // Generate URL with news number
+                          $url = 'Article.php?type=Finance&num=' . $row['Num'];
+                          
+                          // Output the news item inside a clickable div
+                          echo '<div class="news-title" onclick="window.location.href=\'' . $url . '\'">' . $row['Title'] . '</div>'; // Added </div> at the end
+                      } else {
+                          // No matching rows found
+                          echo "No records found";
+                      }
+                  } catch(PDOException $error) {
+                      // Error handling: Print error message if connection fails
+                      echo "Connection failed: " . $error->getMessage();
+                  }
+                  ?>
                 </div>
                 <div class="news-sub-header">
                   <div class="time">8:00</div>
@@ -297,11 +590,35 @@ include 'config.php';
               </div>
               <div class="finance-news article-open">
                 <div class="news-header">
-                  <div class="index">01</div>
-                  <div class="news-title">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Delectus, doloremque.
-                  </div>
+                  <div class="index">04</div>
+                  <?php
+                  try {
+                      // Define SQL query
+                      $sql = "SELECT Title, Num FROM news WHERE Type = 'Finance' AND Num = 12"; // Changed IN (1) to = 1
+                      
+                      // Prepare and execute the statement
+                      $stmt = $conn->prepare($sql);
+                      $stmt->execute();
+                      
+                      // Check if there are any results
+                      if ($stmt->rowCount() > 0) {
+                          // Fetch the first row
+                          $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                          
+                          // Generate URL with news number
+                          $url = 'Article.php?type=Finance&num=' . $row['Num'];
+                          
+                          // Output the news item inside a clickable div
+                          echo '<div class="news-title" onclick="window.location.href=\'' . $url . '\'">' . $row['Title'] . '</div>'; // Added </div> at the end
+                      } else {
+                          // No matching rows found
+                          echo "No records found";
+                      }
+                  } catch(PDOException $error) {
+                      // Error handling: Print error message if connection fails
+                      echo "Connection failed: " . $error->getMessage();
+                  }
+                  ?>
                 </div>
                 <div class="news-sub-header">
                   <div class="time">8:00</div>
@@ -311,11 +628,35 @@ include 'config.php';
               </div>
               <div class="finance-news article-open">
                 <div class="news-header">
-                  <div class="index">01</div>
-                  <div class="news-title">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Delectus, doloremque.
-                  </div>
+                  <div class="index">05</div>
+                  <?php
+                  try {
+                      // Define SQL query
+                      $sql = "SELECT Title, Num FROM news WHERE Type = 'Finance' AND Num = 13"; // Changed IN (1) to = 1
+                      
+                      // Prepare and execute the statement
+                      $stmt = $conn->prepare($sql);
+                      $stmt->execute();
+                      
+                      // Check if there are any results
+                      if ($stmt->rowCount() > 0) {
+                          // Fetch the first row
+                          $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                          
+                          // Generate URL with news number
+                          $url = 'Article.php?type=Finance&num=' . $row['Num'];
+                          
+                          // Output the news item inside a clickable div
+                          echo '<div class="news-title" onclick="window.location.href=\'' . $url . '\'">' . $row['Title'] . '</div>'; // Added </div> at the end
+                      } else {
+                          // No matching rows found
+                          echo "No records found";
+                      }
+                  } catch(PDOException $error) {
+                      // Error handling: Print error message if connection fails
+                      echo "Connection failed: " . $error->getMessage();
+                  }
+                  ?>
                 </div>
                 <div class="news-sub-header">
                   <div class="time">8:00</div>
@@ -441,56 +782,244 @@ include 'config.php';
           <div class="tech-main">
             <div class="tech-grid">
               <div id="grid-card article-open">
-                <img src="./assets/img/finance.png" alt="" />
+              <?php
+                try {
+                    $sql = "SELECT Sphoto FROM news WHERE Type = 'Tech' AND Num = 7"; // Changed IN (1) to = 1
+                    
+                    // Prepare and execute the statement
+                    $stmt = $conn->prepare($sql);
+                    $stmt->execute();
+                    
+                    // Check if there are any results
+                    if ($stmt->rowCount() > 0) {
+                        // Fetch the first row
+                        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                        
+                        // Output the news item inside a clickable div
+                        echo '<img src="' . $row['Sphoto'] . '" alt="" style="width: 257px; height: 216px;">';
+                    } else {
+                        // No matching rows found
+                        echo "No records found";
+                    }
+                } catch(PDOException $error) {
+                    // Error handling: Print error message if connection fails
+                    echo "Connection failed: " . $error->getMessage();
+                }
+                ?>
                 <div class="tech-data">
                   <div class="tech-header">
-                    <div class="tech-title">Google</div>
+                    <div class="tech-title">Trending</div>
                     <div class="tech-time">09:00</div>
                   </div>
-                  <div class="tech-desc">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Quia, hic.
-                  </div>
+                  <?php
+                  try {
+                      // Define SQL query
+                      $sql = "SELECT Title, Num FROM news WHERE Type = 'Tech' AND Num = 7"; // Changed IN (1) to = 1
+                      
+                      // Prepare and execute the statement
+                      $stmt = $conn->prepare($sql);
+                      $stmt->execute();
+                      
+                      // Check if there are any results
+                      if ($stmt->rowCount() > 0) {
+                          // Fetch the first row
+                          $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                          
+                          // Generate URL with news number
+                          $url = 'Article.php?type=Tech&num=' . $row['Num'];
+                          
+                          // Output the news item inside a clickable div
+                          echo '<div class="tech-desc" onclick="window.location.href=\'' . $url . '\'">' . $row['Title'] . '</div>'; // Added </div> at the end
+                      } else {
+                          // No matching rows found
+                          echo "No records found";
+                      }
+                  } catch(PDOException $error) {
+                      // Error handling: Print error message if connection fails
+                      echo "Connection failed: " . $error->getMessage();
+                  }
+                  ?>
                 </div>
               </div>
               <div id="grid-card article-open">
-                <img src="./assets/img/finance.png" alt="" />
+              <?php
+                try {
+                    $sql = "SELECT Sphoto FROM news WHERE Type = 'Tech' AND Num = 8"; // Changed IN (1) to = 1
+                    
+                    // Prepare and execute the statement
+                    $stmt = $conn->prepare($sql);
+                    $stmt->execute();
+                    
+                    // Check if there are any results
+                    if ($stmt->rowCount() > 0) {
+                        // Fetch the first row
+                        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                        
+                        // Output the news item inside a clickable div
+                        echo '<img src="' . $row['Sphoto'] . '" alt="" style="width: 257px; height: 216px;">';
+                    } else {
+                        // No matching rows found
+                        echo "No records found";
+                    }
+                } catch(PDOException $error) {
+                    // Error handling: Print error message if connection fails
+                    echo "Connection failed: " . $error->getMessage();
+                }
+                ?>
                 <div class="tech-data">
                   <div class="tech-header">
-                    <div class="tech-title">Google</div>
+                    <div class="tech-title">Trending</div>
                     <div class="tech-time">09:00</div>
                   </div>
-                  <div class="tech-desc">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Quia, hic.
-                  </div>
+                  <?php
+                  try {
+                      // Define SQL query
+                      $sql = "SELECT Title, Num FROM news WHERE Type = 'Tech' AND Num = 8"; // Changed IN (1) to = 1
+                      
+                      // Prepare and execute the statement
+                      $stmt = $conn->prepare($sql);
+                      $stmt->execute();
+                      
+                      // Check if there are any results
+                      if ($stmt->rowCount() > 0) {
+                          // Fetch the first row
+                          $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                          
+                          // Generate URL with news number
+                          $url = 'Article.php?type=Tech&num=' . $row['Num'];
+                          
+                          // Output the news item inside a clickable div
+                          echo '<div class="tech-desc" onclick="window.location.href=\'' . $url . '\'">' . $row['Title'] . '</div>'; // Added </div> at the end
+                      } else {
+                          // No matching rows found
+                          echo "No records found";
+                      }
+                  } catch(PDOException $error) {
+                      // Error handling: Print error message if connection fails
+                      echo "Connection failed: " . $error->getMessage();
+                  }
+                  ?>
                 </div>
               </div>
 
               <div id="grid-card article-open">
-                <img src="./assets/img/finance.png" alt="" />
+              <?php
+                try {
+                    $sql = "SELECT Sphoto FROM news WHERE Type = 'Tech' AND Num = 9"; // Changed IN (1) to = 1
+                    
+                    // Prepare and execute the statement
+                    $stmt = $conn->prepare($sql);
+                    $stmt->execute();
+                    
+                    // Check if there are any results
+                    if ($stmt->rowCount() > 0) {
+                        // Fetch the first row
+                        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                        
+                        // Output the news item inside a clickable div
+                        echo '<img src="' . $row['Sphoto'] . '" alt="" style="width: 257px; height: 216px;">';
+                    } else {
+                        // No matching rows found
+                        echo "No records found";
+                    }
+                } catch(PDOException $error) {
+                    // Error handling: Print error message if connection fails
+                    echo "Connection failed: " . $error->getMessage();
+                }
+                ?>
                 <div class="tech-data">
                   <div class="tech-header">
-                    <div class="tech-title">Google</div>
+                    <div class="tech-title">Trending</div>
                     <div class="tech-time">09:00</div>
                   </div>
-                  <div class="tech-desc">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Quia, hic.
-                  </div>
+                  <?php
+                  try {
+                      // Define SQL query
+                      $sql = "SELECT Title, Num FROM news WHERE Type = 'Tech' AND Num = 9"; // Changed IN (1) to = 1
+                      
+                      // Prepare and execute the statement
+                      $stmt = $conn->prepare($sql);
+                      $stmt->execute();
+                      
+                      // Check if there are any results
+                      if ($stmt->rowCount() > 0) {
+                          // Fetch the first row
+                          $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                          
+                          // Generate URL with news number
+                          $url = 'Article.php?type=Tech&num=' . $row['Num'];
+                          
+                          // Output the news item inside a clickable div
+                          echo '<div class="tech-desc" onclick="window.location.href=\'' . $url . '\'">' . $row['Title'] . '</div>'; // Added </div> at the end
+                      } else {
+                          // No matching rows found
+                          echo "No records found";
+                      }
+                  } catch(PDOException $error) {
+                      // Error handling: Print error message if connection fails
+                      echo "Connection failed: " . $error->getMessage();
+                  }
+                  ?>
                 </div>
               </div>
               <div id="grid-card article-open">
-                <img src="./assets/img/finance.png" alt="" />
+              <?php
+                try {
+                    $sql = "SELECT Sphoto FROM news WHERE Type = 'Tech' AND Num = 10"; // Changed IN (1) to = 1
+                    
+                    // Prepare and execute the statement
+                    $stmt = $conn->prepare($sql);
+                    $stmt->execute();
+                    
+                    // Check if there are any results
+                    if ($stmt->rowCount() > 0) {
+                        // Fetch the first row
+                        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                        
+                        // Output the news item inside a clickable div
+                        echo '<img src="' . $row['Sphoto'] . '" alt="" style="width: 257px; height: 216px;">';
+                    } else {
+                        // No matching rows found
+                        echo "No records found";
+                    }
+                } catch(PDOException $error) {
+                    // Error handling: Print error message if connection fails
+                    echo "Connection failed: " . $error->getMessage();
+                }
+                ?>
                 <div class="tech-data">
                   <div class="tech-header">
-                    <div class="tech-title">Google</div>
+                    <div class="tech-title">Trending</div>
                     <div class="tech-time">09:00</div>
                   </div>
-                  <div class="tech-desc">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Quia, hic.
-                  </div>
+                  <?php
+                  try {
+                      // Define SQL query
+                      $sql = "SELECT Title, Num FROM news WHERE Type = 'Tech' AND Num = 10"; // Changed IN (1) to = 1
+                      
+                      // Prepare and execute the statement
+                      $stmt = $conn->prepare($sql);
+                      $stmt->execute();
+                      
+                      // Check if there are any results
+                      if ($stmt->rowCount() > 0) {
+                          // Fetch the first row
+                          $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                          
+                          // Generate URL with news number
+                          $url = 'Article.php?type=Tech&num=' . $row['Num'];
+                          
+                          // Output the news item inside a clickable div
+                          echo '<div class="tech-desc" onclick="window.location.href=\'' . $url . '\'">' . $row['Title'] . '</div>'; // Added </div> at the end
+                      } else {
+                          // No matching rows found
+                          echo "No records found";
+                      }
+                  } catch(PDOException $error) {
+                      // Error handling: Print error message if connection fails
+                      echo "Connection failed: " . $error->getMessage();
+                  }
+                  ?>
                 </div>
               </div>
             </div>
@@ -499,13 +1028,92 @@ include 'config.php';
                 <img src="./assets/img/bg-1.png" alt="" />
                 <div class="flex-data">
                   <div class="flex-title">
-                    <h3>ZARA</h3>
+                    <h3>Latest</h3>
                     <div class="tech-time">09:00</div>
                   </div>
-                  <div class="flex-desc">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. A,
-                    consequatur?
+                  <?php
+                  try {
+                      // Define SQL query
+                      $sql = "SELECT Title, Num FROM news WHERE Type = 'Tech' AND Num = 11"; // Changed IN (1) to = 1
+                      
+                      // Prepare and execute the statement
+                      $stmt = $conn->prepare($sql);
+                      $stmt->execute();
+                      
+                      // Check if there are any results
+                      if ($stmt->rowCount() > 0) {
+                          // Fetch the first row
+                          $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                          
+                          // Generate URL with news number
+                          $url = 'Article.php?type=Tech&num=' . $row['Num'];
+                          
+                          // Output the news item inside a clickable div
+                          echo '<div onclick="window.location.href=\'' . $url . '\'">';
+        
+                          // Split the title into chunks of maximum 50 characters
+                          $title = wordwrap($row['Title'], 70, "<br>");
+                          
+                          // Output the title
+                          echo $title;
+                          
+                          // Close the clickable div
+                          echo '</div>';
+                      } else {
+                          // No matching rows found
+                          echo "No records found";
+                      }
+                  } catch(PDOException $error) {
+                      // Error handling: Print error message if connection fails
+                      echo "Connection failed: " . $error->getMessage();
+                  }
+                  ?>
+                </div>
+              </div>
+              <div class="flex-card article-open">
+                <img src="./assets/img/bg-1.png" alt="" />
+                <div class="flex-data">
+                  <div class="flex-title">
+                    <h3>Latest</h3>
+                    <div class="tech-time">09:00</div>
                   </div>
+                  <?php
+                  try {
+                      // Define SQL query
+                      $sql = "SELECT Title, Num FROM news WHERE Type = 'Tech' AND Num = 12"; // Changed IN (1) to = 1
+                      
+                      // Prepare and execute the statement
+                      $stmt = $conn->prepare($sql);
+                      $stmt->execute();
+                      
+                      // Check if there are any results
+                      if ($stmt->rowCount() > 0) {
+                          // Fetch the first row
+                          $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                          
+                          // Generate URL with news number
+                          $url = 'Article.php?type=Tech&num=' . $row['Num'];
+                          
+                          // Output the news item inside a clickable div
+                          echo '<div onclick="window.location.href=\'' . $url . '\'">';
+        
+                          // Split the title into chunks of maximum 50 characters
+                          $title = wordwrap($row['Title'], 70, "<br>");
+                          
+                          // Output the title
+                          echo $title;
+                          
+                          // Close the clickable div
+                          echo '</div>';
+                      } else {
+                          // No matching rows found
+                          echo "No records found";
+                      }
+                  } catch(PDOException $error) {
+                      // Error handling: Print error message if connection fails
+                      echo "Connection failed: " . $error->getMessage();
+                  }
+                  ?>
                 </div>
               </div>
               <div class="flex-card article-open">
@@ -515,36 +1123,88 @@ include 'config.php';
                     <h3>ZARA</h3>
                     <div class="tech-time">09:00</div>
                   </div>
-                  <div class="flex-desc">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. A,
-                    consequatur?
-                  </div>
+                  <?php
+                    try {
+                      // Define SQL query
+                      $sql = "SELECT Title, Num FROM news WHERE Type = 'Tech' AND Num = 13"; // Changed IN (1) to = 1
+                      
+                      // Prepare and execute the statement
+                      $stmt = $conn->prepare($sql);
+                      $stmt->execute();
+                      
+                      // Check if there are any results
+                      if ($stmt->rowCount() > 0) {
+                          // Fetch the first row
+                          $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                          
+                          // Generate URL with news number
+                          $url = 'Article.php?type=Tech&num=' . $row['Num'];
+                          
+                          echo '<div onclick="window.location.href=\'' . $url . '\'">';
+        
+                          // Split the title into chunks of maximum 50 characters
+                          $title = wordwrap($row['Title'], 70, "<br>");
+                          
+                          // Output the title
+                          echo $title;
+                          
+                          // Close the clickable div
+                          echo '</div>';
+                      } else {
+                          // No matching rows found
+                          echo "No records found";
+                      }
+                    } catch(PDOException $error) {
+                      // Error handling: Print error message if connection fails
+                      echo "Connection failed: " . $error->getMessage();
+                    }
+                    ?>
                 </div>
               </div>
               <div class="flex-card article-open">
                 <img src="./assets/img/bg-1.png" alt="" />
                 <div class="flex-data">
                   <div class="flex-title">
-                    <h3>ZARA</h3>
+                    <h3>Latest</h3>
                     <div class="tech-time">09:00</div>
                   </div>
-                  <div class="flex-desc">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. A,
-                    consequatur?
-                  </div>
-                </div>
-              </div>
-              <div class="flex-card article-open">
-                <img src="./assets/img/bg-1.png" alt="" />
-                <div class="flex-data">
-                  <div class="flex-title">
-                    <h3>ZARA</h3>
-                    <div class="tech-time">09:00</div>
-                  </div>
-                  <div class="flex-desc">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. A,
-                    consequatur?
-                  </div>
+                  <?php
+                  try {
+                      // Define SQL query
+                      $sql = "SELECT Title, Num FROM news WHERE Type = 'Tech' AND Num = 14"; // Changed IN (1) to = 1
+                      
+                      // Prepare and execute the statement
+                      $stmt = $conn->prepare($sql);
+                      $stmt->execute();
+                      
+                      // Check if there are any results
+                      if ($stmt->rowCount() > 0) {
+                          // Fetch the first row
+                          $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                          
+                          // Generate URL with news number
+                          $url = 'Article.php?type=Tech&num=' . $row['Num'];
+                          
+                          // Output the news item inside a clickable div
+                          echo '<div onclick="window.location.href=\'' . $url . '\'">';
+        
+                          // Split the title into chunks of maximum 50 characters
+                          $title = wordwrap($row['Title'], 70, "<br>");
+                          
+                          // Output the title
+                          echo $title;
+                          
+                          // Close the clickable div
+                          echo '</div>';
+                      } else {
+                          // No matching rows found
+                          echo "No records found";
+                      }
+                  } catch(PDOException $error) {
+                      // Error handling: Print error message if connection fails
+                      echo "Connection failed: " . $error->getMessage();
+                  }
+                  ?>
                 </div>
               </div>
             </div>
@@ -557,65 +1217,230 @@ include 'config.php';
           </div>
           <div class="flex-3">
             <div class="div-1 article-open">
-              <img src="./assets/img/life.png" alt="" class="life-long-img" />
+            <?php
+                  try {
+                      $sql = "SELECT Sphoto FROM news WHERE Type = 'Lifestyle' AND Num = 4"; // Changed IN (1) to = 1
+                      
+                      // Prepare and execute the statement
+                      $stmt = $conn->prepare($sql);
+                      $stmt->execute();
+                      
+                      // Check if there are any results
+                      if ($stmt->rowCount() > 0) {
+                          // Fetch the first row
+                          $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                          
+                          // Output the news item inside a clickable div
+                          echo '<img src="' . $row['Sphoto'] . '" alt="" class="life-long-img"/>'; 
+                      } else {
+                          // No matching rows found
+                          echo "No records found";
+                      }
+                  } catch(PDOException $error) {
+                      // Error handling: Print error message if connection fails
+                      echo "Connection failed: " . $error->getMessage();
+                  }
+                  ?>
               <div class="long-header">
-                <div class="long-title">ZARA</div>
+                <div class="long-title">Latest</div>
                 <div class="long-time">09:08</div>
               </div>
-              <div class="long-desc">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Officiis, suscipit.
-              </div>
+              <?php
+                  try {
+                      $sql = "SELECT Title, Num FROM news WHERE Type = 'Lifestyle' AND Num = 4"; // Changed IN (1) to = 1
+                      
+                      // Prepare and execute the statement
+                      $stmt = $conn->prepare($sql);
+                      $stmt->execute();
+                      
+                      // Check if there are any results
+                      if ($stmt->rowCount() > 0) {
+                          // Fetch the first row
+                          $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                          
+                          // Generate URL with news number
+                          $url = 'Article.php?type=Lifestyle&num=' . $row['Num'];
+                          
+                          // Output the news item inside a clickable div
+                          echo '<div class="long-desc" onclick="window.location.href=\'' . $url . '\'">' . $row['Title'] . '</div>'; // Added </div> at the end
+                      } else {
+                          // No matching rows found
+                          echo "No records found";
+                      }
+                  } catch(PDOException $error) {
+                      // Error handling: Print error message if connection fails
+                      echo "Connection failed: " . $error->getMessage();
+                  }
+                  ?>
             </div>
             <div class="div-1 article-open">
-              <img src="./assets/img/life.png" alt="" class="life-long-img" />
+            <?php
+                try {
+                    $sql = "SELECT Sphoto FROM news WHERE Type = 'Lifestyle' AND Num = 5"; // Changed IN (1) to = 1
+                    
+                    // Prepare and execute the statement
+                    $stmt = $conn->prepare($sql);
+                    $stmt->execute();
+                    
+                    // Check if there are any results
+                    if ($stmt->rowCount() > 0) {
+                        // Fetch the first row
+                        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                        
+                        // Output the news item inside a clickable div
+                        echo '<img src="' . $row['Sphoto'] . '" alt="" class="life-long-img"/>'; 
+                    } else {
+                        // No matching rows found
+                        echo "No records found";
+                    }
+                } catch(PDOException $error) {
+                    // Error handling: Print error message if connection fails
+                    echo "Connection failed: " . $error->getMessage();
+                }
+                ?>
               <div class="long-header">
-                <div class="long-title">ZARA</div>
+                <div class="long-title">Latest</div>
                 <div class="long-time">09:08</div>
               </div>
-              <div class="long-desc">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Officiis, suscipit.
-              </div>
+              <?php
+                  try {
+                      $sql = "SELECT Title, Num FROM news WHERE Type = 'Lifestyle' AND Num = 5"; // Changed IN (1) to = 1
+                      
+                      // Prepare and execute the statement
+                      $stmt = $conn->prepare($sql);
+                      $stmt->execute();
+                      
+                      // Check if there are any results
+                      if ($stmt->rowCount() > 0) {
+                          // Fetch the first row
+                          $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                          
+                          // Generate URL with news number
+                          $url = 'Article.php?type=Lifestyle&num=' . $row['Num'];
+                          
+                          // Output the news item inside a clickable div
+                          echo '<div class="long-desc" onclick="window.location.href=\'' . $url . '\'">' . $row['Title'] . '</div>'; // Added </div> at the end
+                      } else {
+                          // No matching rows found
+                          echo "No records found";
+                      }
+                  } catch(PDOException $error) {
+                      // Error handling: Print error message if connection fails
+                      echo "Connection failed: " . $error->getMessage();
+                  }
+                  ?>
             </div>
             <div class="div-3">
               <div class="flex-card article-open">
                 <img src="./assets/img/bg-1.png" alt="" />
                 <div class="flex-data">
                   <div class="flex-title">
-                    <h3>ZARA</h3>
+                    <h3>Latest</h3>
                     <div class="tech-time">09:00</div>
                   </div>
-                  <div class="flex-desc">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. A,
-                    consequatur?
-                  </div>
+                  <?php
+                  try {
+                      
+                      // Define SQL query
+                      $sql = "SELECT Title, Num FROM news WHERE Type = 'Lifestyle' AND Num = 6"; // Changed IN (1) to = 1
+                      
+                      // Prepare and execute the statement
+                      $stmt = $conn->prepare($sql);
+                      $stmt->execute();
+                      
+                      // Check if there are any results
+                      if ($stmt->rowCount() > 0) {
+                          // Fetch the first row
+                          $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                          
+                          // Generate URL with news number
+                          $url = 'Article.php?type=Lifestyle&num=' . $row['Num'];
+                          
+                          // Output the news item inside a clickable div
+                          echo '<div class="flex-desc" onclick="window.location.href=\'' . $url . '\'">' . $row['Title'] . '</div>'; // Added </div> at the end
+                      } else {
+                          // No matching rows found
+                          echo "No records found";
+                      }
+                  } catch(PDOException $error) {
+                      // Error handling: Print error message if connection fails
+                      echo "Connection failed: " . $error->getMessage();
+                  }
+                  ?>
                 </div>
               </div>
               <div class="flex-card article-open">
                 <img src="./assets/img/bg-1.png" alt="" />
                 <div class="flex-data">
                   <div class="flex-title">
-                    <h3>ZARA</h3>
+                    <h3>Latest</h3>
                     <div class="tech-time">09:00</div>
                   </div>
-                  <div class="flex-desc">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. A,
-                    consequatur?
-                  </div>
+                  <?php
+                  try {                      
+                      // Define SQL query
+                      $sql = "SELECT Title, Num FROM news WHERE Type = 'Lifestyle' AND Num = 7"; // Changed IN (1) to = 1
+                      
+                      // Prepare and execute the statement
+                      $stmt = $conn->prepare($sql);
+                      $stmt->execute();
+                      
+                      // Check if there are any results
+                      if ($stmt->rowCount() > 0) {
+                          // Fetch the first row
+                          $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                          
+                          // Generate URL with news number
+                          $url = 'Article.php?type=Lifestyle&num=' . $row['Num'];
+                          
+                          // Output the news item inside a clickable div
+                          echo '<div class="flex-desc" onclick="window.location.href=\'' . $url . '\'">' . $row['Title'] . '</div>'; // Added </div> at the end
+                      } else {
+                          // No matching rows found
+                          echo "No records found";
+                      }
+                  } catch(PDOException $error) {
+                      // Error handling: Print error message if connection fails
+                      echo "Connection failed: " . $error->getMessage();
+                  }
+                  ?>
                 </div>
               </div>
               <div class="flex-card article-open">
                 <img src="./assets/img/bg-1.png" alt="" />
                 <div class="flex-data">
                   <div class="flex-title">
-                    <h3>ZARA</h3>
+                    <h3>Latest</h3>
                     <div class="tech-time">09:00</div>
                   </div>
-                  <div class="flex-desc">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. A,
-                    consequatur?
-                  </div>
+                  <?php
+                  try {                      
+                      // Define SQL query
+                      $sql = "SELECT Title, Num FROM news WHERE Type = 'Lifestyle' AND Num = 8"; // Changed IN (1) to = 1
+                      
+                      // Prepare and execute the statement
+                      $stmt = $conn->prepare($sql);
+                      $stmt->execute();
+                      
+                      // Check if there are any results
+                      if ($stmt->rowCount() > 0) {
+                          // Fetch the first row
+                          $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                          
+                          // Generate URL with news number
+                          $url = 'Article.php?type=Lifestyle&num=' . $row['Num'];
+                          
+                          // Output the news item inside a clickable div
+                          echo '<div class="flex-desc" onclick="window.location.href=\'' . $url . '\'">' . $row['Title'] . '</div>'; // Added </div> at the end
+                      } else {
+                          // No matching rows found
+                          echo "No records found";
+                      }
+                  } catch(PDOException $error) {
+                      // Error handling: Print error message if connection fails
+                      echo "Connection failed: " . $error->getMessage();
+                  }
+                  ?>
                 </div>
               </div>
             </div>
@@ -1041,5 +1866,11 @@ include 'config.php';
     </script>
     <script src="./assets/sidebar.js"></script>
     <script src="./assets/home-animations.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>
+
+<?php
+// Close the database connection
+$conn = null;
+?>
