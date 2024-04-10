@@ -47,11 +47,11 @@ try {
       <h2 class="logo">The Bombay Forum</h2>
       <h2 class="mob-logo">TBF</h2>
       <ul class="link-ul center-nav">
-        <li><a href="">Finance</a></li>
-        <li><a href="">Technology</a></li>
-        <li><a href="">Lifestyle</a></li>
-        <li><a href="">Markets</a></li>
-        <li><a href="">Bombay</a></li>
+      <li><a href="./domain-news.php?type=Finance">Finance</a></li>
+      <li><a href="./domain-news.php?type=Tech">Technology</a></li>
+      <li><a href="./domain-news.php?type=Lifestyle">Lifestyle</a></li>
+      <li><a href="./domain-news.php?type=Markets">Markets</a></li>
+      <li><a href="./domain-news.php?type=Bombay">Bombay</a></li>
       </ul>
       <ul class="link-ul side-nav">
         <li><a href="" class="login-link">Login</a></li>
@@ -66,11 +66,11 @@ try {
         <div class="cross-btn">X</div>
         <div class="side-main">
           <ul class="link-ul side-ls">
-            <li><a href="">Finance</a></li>
-            <li><a href="">Technology</a></li>
-            <li><a href="">Lifestyle</a></li>
-            <li><a href="">Markets</a></li>
-            <li><a href="">Bombay</a></li>
+            <li><a href="./domain-news.php?type=Finance">Finance</a></li>
+            <li><a href="./domain-news.php?type=Tech">Technology</a></li>
+            <li><a href="./domain-news.php?type=Lifestyle">Lifestyle</a></li>
+            <li><a href="./domain-news.php?type=Markets">Markets</a></li>
+            <li><a href="./domain-news.php?type=Bombay">Bombay</a></li>
           </ul>
         </div>
       </div>

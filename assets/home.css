@@ -820,7 +820,7 @@ main.body-main{
         border-radius: 0;
         object-fit: cover;
         padding: 0;
-        /* filter: opacity(1); */
+        filter: opacity(1);
         width: 100%;
         height: 100%;
     }
