@@ -337,7 +337,7 @@ try {
                         $row = $stmt->fetch(PDO::FETCH_ASSOC);
                         
                         // Output the news item inside a clickable div
-                        echo '<img src="' . $row['Lphoto'] . '" alt="" style="height: 100px;" />';
+                        echo '<img src="' . $row['Lphoto'] . '" alt="" height= "100px" style="overflow:hidden;" />';
                     } else {
                         // No matching rows found
                         echo "No records found";
@@ -397,7 +397,7 @@ try {
                         $row = $stmt->fetch(PDO::FETCH_ASSOC);
                         
                         // Output the news item inside a clickable div
-                        echo '<img src="' . $row['Lphoto'] . '" alt="" style="height: 100px;" />';
+                        echo '<img src="' . $row['Lphoto'] . '" alt="" height= "100px" style="overflow:hidden;" />';
                     } else {
                         // No matching rows found
                         echo "No records found";
@@ -457,7 +457,7 @@ try {
                         $row = $stmt->fetch(PDO::FETCH_ASSOC);
                         
                         // Output the news item inside a clickable div
-                        echo '<img src="' . $row['Lphoto'] . '" alt="" style="height: 100px;" />';
+                        echo '<img src="' . $row['Lphoto'] . '" alt="" height= "100px" style="overflow:hidden;" />';
 
                     } else {
                         // No matching rows found
