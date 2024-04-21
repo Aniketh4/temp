@@ -105,7 +105,7 @@ header .news-num{
 .tab-bar{
     display: flex;
     padding: 2rem;
-    justify-content: space-between;
+    justify-content: flex-end;
 }
 
 .tabs{

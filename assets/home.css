@@ -332,6 +332,8 @@ main.body-main{
     display: flex;
     align-items: center;
     justify-content: space-around;
+    gap: 3rem;
+
 }
 
 .tech-grid{
@@ -341,29 +343,17 @@ main.body-main{
     width: 50%;
 }
 
-.tech-grid #grid-card{
-    display: inline-block;
-    overflow: hidden;
-    position: relative;
-    width: 100%;
-    height: 15rem;
-    border-radius: 12px;
-    background-color: #00000075;
-    color: white;
-    display: flex;
-    align-items: flex-end;
-}
 
-.tech-grid #grid-card img{
+
+.tech-grid img{
     pointer-events: none;
-    position: absolute;
     width: 100%;
-    height: 100%;
+   
     border-radius: 12px;
     z-index: -1;
 }
 
-.tech-grid #grid-card .tech-data{
+.tech-grid  .tech-data{
     padding: 1rem;
     display: flex;
     flex-direction: column; 
@@ -371,21 +361,32 @@ main.body-main{
 
 }
 
-.tech-grid #grid-card:hover .tech-title{
+
+.grid-card{
+    cursor: pointer;
+}
+
+.tech-grid .grid-card:hover .tech-title{
     text-decoration: underline;
 }
 
-.tech-grid #grid-card .tech-data .tech-header{
-    font-size: 1.2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.article-open{
+    cursor: pointer;
 }
 
-.tech-grid #grid-card .tech-data .tech-header div{
+.tech-header{
+    font-size: 1.1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.tech-grid .grid-card .tech-data .tech-header div{
     font-weight: bold;
 
 }
+
+
 
 .tech-flex{
     display: flex;
@@ -441,6 +442,10 @@ main.body-main{
     color: black;
     border: 1px solid black;
     border-radius: 12px;
+}
+
+.lifestyle-arena .div-1{
+    height: 70vh;
 }
 
 .div-1:hover .long-title{
@@ -739,7 +744,19 @@ main.body-main{
 }
 
 .life-long-img{
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
     width: 100%;
+    object-fit: cover;
+    padding: 0;
+    object-position: top;
+    filter: opacity(1);
+    width: 100%;
+    height: 60%;
+}
+
+.white-card{
+    cursor: pointer;
 }
 
 .article-modal .cross{
@@ -895,6 +912,13 @@ main.body-main{
         grid-template-columns: 1fr;
         align-items: center;
         justify-content: center;
+    }
+
+    .grid-card{
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
     }
 
     .lifestyle-arena .flex-3{
