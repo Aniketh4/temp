@@ -26,10 +26,10 @@
       <h2 class="mob-logo">TBF</h2>
       <ul class="link-ul center-nav">
         <li><a href="">Finance</a></li>
-        <li><a href="">Finance</a></li>
-        <li><a href="">Finance</a></li>
-        <li><a href="">Finance</a></li>
-        <li><a href="">Finance</a></li>
+        <li><a href="">Technology</a></li>
+        <li><a href="">Lifestyle</a></li>
+        <li><a href="">Markets</a></li>
+        <li><a href="">Bombay</a></li>
       </ul>
       <ul class="link-ul side-nav">
         <li><a href="" class="login-link">Login</a></li>
@@ -44,11 +44,11 @@
         <div class="cross-btn">X</div>
         <div class="side-main">
           <ul class="link-ul side-ls">
-            <li><a href="">Home</a></li>
-            <li><a href="">Home</a></li>
-            <li><a href="">Home</a></li>
-            <li><a href="">Home</a></li>
-            <li><a href="">Home</a></li>
+            <li><a href="">Finance</a></li>
+            <li><a href="">technology</a></li>
+            <li><a href="">Lifestyle</a></li>
+            <li><a href="">Markets</a></li>
+            <li><a href="">Bombay</a></li>
           </ul>
         </div>
       </div>
